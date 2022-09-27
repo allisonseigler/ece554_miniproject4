@@ -19,7 +19,7 @@ module tpuv1
   logic signed [BITS_C-1:0] Cout [DIM-1:0];
   logic [$clog2(DIM)-1:0] Arow, Crow;
   logic [$clog2(DIM*3-2)-1:0] count;
-  logic en_b, en_sys, WrEn_a, WrEn_sys, incr_count;
+  logic en_b, en_sys, WrEn_a, WrEn_sys, incr_count, rst_count;
   state_t state, nxt_state;
   
   memA #(.BITS_AB(BITS_AB), .DIM(DIM)) MEM_A(.clk(clk), .rst_n(rst_n), .en(en_sys), .WrEn(WrEn_a), .Ain(dataIn), .Arow(Arow), .Aout(A));
@@ -34,7 +34,7 @@ module tpuv1
   assign dataOut = (addr[$clog2(BITS_C)-1:0] == 4'd0) ? Cout[DATAW-1:0] : Cout[(DATAW*2)-1:DATAW];
 	
   always_ff @(posedge clk, negedge rst_n)
-	if (!rst_n)
+	  if (!rst_n | rst_count)
 		count <= 0;
 	else if(incr_count) 
 		count <= count +1;
@@ -51,6 +51,7 @@ module tpuv1
 	WrEn_a = 1'b0;
 	WrEn_sys = 1'b0;
 	incr_count = 1'b0;
+	rst_count = 1'b0;
 	
 	case (state)
 		READWRITE: begin
@@ -76,6 +77,7 @@ module tpuv1
 		MULTIPLY: begin
 			if (count == DIM*3-2) begin
 				nxt_state = READWRITE;
+				rst_count = 1'b1;
 			end else begin
 				nxt_state = MULTIPLY;
 				en_sys = 1'b1;
