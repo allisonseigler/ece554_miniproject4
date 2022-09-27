@@ -14,12 +14,12 @@ module tpuv1
    );
   
   typedef enum {IDLE, READ, WRITE, MULTIPLY} state_t;
-  logic en;
-  state_t state, next_state;
+  logic en, en_b;
+  state_t state, nxt_state;
   
   memA #(.BITS_AB(BITS_AB), .DIM(DIM)) MEM_A(.clk(clk), .rst_n(rst_n), .en(en), .WrEn(???), .Ain(???), .Arow(???), .Aout(???));
   
-  memB #(.BITS_AB(BITS_AB), .DIM(DIM)) MEM_B(.clk(clk), .rst_n(rst_n), .en(en), .Bin(???), .Bout(???));
+	memB #(.BITS_AB(BITS_AB), .DIM(DIM)) MEM_B(.clk(clk), .rst_n(rst_n), .en(en_b), .Bin(???), .Bout(???));
   
   systolic_array #(.BITS_AB(BITS_AB), .BITS_C(BITS_C), .DIM(DIM)) SYS_ARR(.clk(clk), .rst_n(rst_n), .WrEn(???), .en(en), .A(???), .B(???), .Cin(???), .Crow(???), .Cout(???));
   
