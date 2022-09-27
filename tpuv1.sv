@@ -13,7 +13,7 @@ module tpuv1
     input [ADDRW-1:0] addr
    );
   
-	typedef enum {READWRITE, MULTIPLY} state_t;
+  typedef enum {READWRITE, MULTIPLY} state_t;
   logic signed [BITS_AB-1:0] A [DIM-1:0];
   logic signed [BITS_AB-1:0] B [DIM-1:0];
   logic signed [BITS_C-1:0] Cout [DIM-1:0];
