@@ -22,22 +22,24 @@ module tpuv1
   logic [$clog2(DIM*3-2)-1:0] count;
   logic en_b, en_sys, WrEn_a, WrEn_sys, incr_count, rst_count;
   state_t state, nxt_state;
-	
+	/*
  genvar i;
  generate
 	 for (i=0; i<DIM; i+=1) begin
-		 dataIn_temp[i] = dataIn[BITS_AB*i:BITS_AB*(i+1)-1]
-  
-  memA #(.BITS_AB(BITS_AB), .DIM(DIM)) MEM_A(.clk(clk), .rst_n(rst_n), .en(en_sys), .WrEn(WrEn_a), .Ain(dataIn_temp), .Arow(Arow), .Aout(A));
+		 dataIn_temp[i] = dataIn[BITS_AB*i:BITS_AB*(i+1)-1];
+	 end
+ endgenerate
+  */
+  memA #(.BITS_AB(BITS_AB), .DIM(DIM)) MEM_A(.clk(clk), .rst_n(rst_n), .en(en_sys), .WrEn(WrEn_a), .Ain(dataIn), .Arow(Arow), .Aout(A));
 
-		 memB #(.BITS_AB(BITS_AB), .DIM(DIM)) MEM_B(.clk(clk), .rst_n(rst_n), .en(en_b), .Bin(dataIn_temp), .Bout(B));
+		 memB #(.BITS_AB(BITS_AB), .DIM(DIM)) MEM_B(.clk(clk), .rst_n(rst_n), .en(en_b), .Bin(dataIn), .Bout(B));
   
   systolic_array #(.BITS_AB(BITS_AB), .BITS_C(BITS_C), .DIM(DIM)) SYS_ARR(.clk(clk), .rst_n(rst_n), .WrEn(WrEn_sys), 
 		.en(en_sys), .A(A), .B(B), .Cin(dataIn), .Crow(Crow), .Cout(Cout));
   
   assign Arow = addr >> $clog2(BITS_AB);
   assign Crow = addr >> $clog2(BITS_C);
-  assign dataOut = (addr[$clog2(BITS_C)-1:0] == 4'd0) ? Cout[DATAW-1:0] : Cout[(DATAW*2)-1:DATAW];
+	assign dataOut = (addr[$clog2(BITS_C)-1:0] == 4'd0) ? {Cout[3], Cout[2], Cout[1], Cout[0]} : {Cout[7], Cout[6], Cout[5], Cout[4]};
 	
   always_ff @(posedge clk, negedge rst_n)
 	  if (!rst_n | rst_count)
