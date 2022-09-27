@@ -18,39 +18,39 @@ module tpuv1
   logic signed [BITS_AB-1:0] B [DIM-1:0];
   logic signed [BITS_C-1:0] Cout [DIM-1:0];
   logic [$clog2(DIM)-1:0] Arow, Crow;
-	logic [$clog2(DIM*3-2)-1:0] count;
-  logic en_a, en_b, en_sys, WrEn_a, WrEn_sys, incr_count;
+  logic [$clog2(DIM*3-2)-1:0] count;
+  logic en_b, en_sys, WrEn_a, WrEn_sys, incr_count;
   state_t state, nxt_state;
   
-	memA #(.BITS_AB(BITS_AB), .DIM(DIM)) MEM_A(.clk(clk), .rst_n(rst_n), .en(en_sys), .WrEn(WrEn_a), .Ain(dataIn), .Arow(Arow), .Aout(A));
+  memA #(.BITS_AB(BITS_AB), .DIM(DIM)) MEM_A(.clk(clk), .rst_n(rst_n), .en(en_sys), .WrEn(WrEn_a), .Ain(dataIn), .Arow(Arow), .Aout(A));
+
+  memB #(.BITS_AB(BITS_AB), .DIM(DIM)) MEM_B(.clk(clk), .rst_n(rst_n), .en(en_b), .Bin(dataIn), .Bout(B));
   
-	memB #(.BITS_AB(BITS_AB), .DIM(DIM)) MEM_B(.clk(clk), .rst_n(rst_n), .en(en_b), .Bin(dataIn), .Bout(B));
+  systolic_array #(.BITS_AB(BITS_AB), .BITS_C(BITS_C), .DIM(DIM)) SYS_ARR(.clk(clk), .rst_n(rst_n), .WrEn(WrEn_sys), 
+		.en(en_sys), .A(A), .B(B), .Cin(dataIn), .Crow(Crow), .Cout(Cout));
   
-  systolic_array #(.BITS_AB(BITS_AB), .BITS_C(BITS_C), .DIM(DIM)) SYS_ARR(.clk(clk), .rst_n(rst_n), .WrEn(WrEn_sys), .en(en_sys), .A(A), .B(B), .Cin(dataIn), .Crow(Crow), .Cout(Cout));
-  
-	assign Arow = addr >> $clog2(BITS_AB);
-	assign Crow = addr >> $clog2(BITS_C);
-	assign dataOut = (addr[$clog2(BITS_C)-1:0] == 4'd0) ? Cout[DATAW-1:0] : Cout[(DATAW*2)-1:DATAW];
+  assign Arow = addr >> $clog2(BITS_AB);
+  assign Crow = addr >> $clog2(BITS_C);
+  assign dataOut = (addr[$clog2(BITS_C)-1:0] == 4'd0) ? Cout[DATAW-1:0] : Cout[(DATAW*2)-1:DATAW];
 	
-	always_ff @(posedge clk, negedge rst_n)
-		if (!rst_n)
-			count <= 0;
-		else if(incr_count) 
-			count <= count +1;
-	
+  always_ff @(posedge clk, negedge rst_n)
+	if (!rst_n)
+		count <= 0;
+	else if(incr_count) 
+		count <= count +1;
+
   always_ff @(posedge clk, negedge rst_n)
 	if (!rst_n)
 		state <= READ_C;
 	else
 		state <= nxt_state;
 
-always_comb begin
-  //en_a = 1'b0;
-  en_b = 1'b0;
-  en_sys = 1'b0;
-  WrEn_a = 1'b0;
-  WrEn_sys = 1'b0;
-  incr_count = 1'b0;
+  always_comb begin
+	en_b = 1'b0;
+	en_sys = 1'b0;
+	WrEn_a = 1'b0;
+	WrEn_sys = 1'b0;
+	incr_count = 1'b0;
 	
 	case (state)
 		READWRITE: begin
