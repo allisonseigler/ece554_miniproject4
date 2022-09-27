@@ -14,8 +14,9 @@ module tpuv1
    );
   
   typedef enum {READ_C, WRITE_A, WRITE_B, WRITE_C MULTIPLY} state_t;
-	logic [BITS_AB-1:0] A [DIM-1:0];
-	logic [BITS_AB-1:0] B [DIM-1:0];
+  logic [BITS_AB-1:0] A [DIM-1:0];
+  logic [BITS_AB-1:0] B [DIM-1:0];
+  logic [$clog2(DIM)-1:0] Arow;
   logic en_a, en_b, en_sys;
   state_t state, nxt_state;
   
@@ -25,7 +26,8 @@ module tpuv1
   
   systolic_array #(.BITS_AB(BITS_AB), .BITS_C(BITS_C), .DIM(DIM)) SYS_ARR(.clk(clk), .rst_n(rst_n), .WrEn(???), .en(en_sys), .A(A), .B(B), .Cin(dataIn), .Crow(Crow), .Cout(???));
   
-  
+	assign Arow = addr >> $clog2(BITS_AB);
+	
   always_ff @(posedge clk, negedge rst_n)
 	if (!rst_n)
 		state <= READ_C;
