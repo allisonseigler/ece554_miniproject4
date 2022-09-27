@@ -13,11 +13,35 @@ module tpuv1
     input [ADDRW-1:0] addr
    );
   
-  memA #(.BITS_AB(BITS_AB), .DIM(DIM)) MEM_A(.clk(clk), .rst_n(rst_n), .en(????), .WrEn(???), .Ain(???), .Arow(???), .Aout(???));
+  typedef enum {IDLE, READ, WRITE, MULTIPLY} state_t;
+  logic en;
+  state_t state, next_state;
   
-  memB #(.BITS_AB(BITS_AB), .DIM(DIM)) MEM_B(.clk(clk), .rst_n(rst_n), .en(???), .Bin(???), .Bout(???));
+  memA #(.BITS_AB(BITS_AB), .DIM(DIM)) MEM_A(.clk(clk), .rst_n(rst_n), .en(en), .WrEn(???), .Ain(???), .Arow(???), .Aout(???));
   
-  systolic_array #(.BITS_AB(BITS_AB), .BITS_C(BITS_C), .DIM(DIM)) SYS_ARR(.clk(clk), .rst_n(rst_n), .WrEn(???), .en(???), .A(???), .B(???), .Cin(???), .Crow(???), .Cout(???));
+  memB #(.BITS_AB(BITS_AB), .DIM(DIM)) MEM_B(.clk(clk), .rst_n(rst_n), .en(en), .Bin(???), .Bout(???));
+  
+  systolic_array #(.BITS_AB(BITS_AB), .BITS_C(BITS_C), .DIM(DIM)) SYS_ARR(.clk(clk), .rst_n(rst_n), .WrEn(???), .en(en), .A(???), .B(???), .Cin(???), .Crow(???), .Cout(???));
+  
+  
+  always_ff @(posedge clk, negedge rst_n)
+	if (!rst_n)
+		state <= IDLE;
+	else
+		state <= nxt_state;
+
+always_comb begin
+  en = 1'b0;
+	
+	case (state)
+		IDLE: begin
+
+		end
+		READ: begin
+		end
+		default: nxt_state = IDLE;
+	endcase
+end
   
   
   
