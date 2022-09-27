@@ -1,70 +1,10 @@
-<<<<<<< HEAD
-module tpuv1
-#(
-  parameter BITS_AB=8,
-  parameter BITS_C=16,
-  parameter DIM=8,
-  parameter ADDRW=16;
-  parameter DATAW=64;
-)
-(
-  input clk, rst_n, r_w, // r_w=0 read, =1 write
-  input [DATAW-1:0] dataIn,
-  output [DATAW-1:0] dataOut,
-  input [ADDRW-1:0] addr
-);
-
-  typedef enum {IDLE, READ, WRITE, MULTIPLY} state_t;
-  logic enA;
-  logic enB;
-  logic enS;
-  logic WrEnA;
-  logic WrEnS;
-
-  state_t state, next_state;
-  
-  memA #(.BITS_AB(BITS_AB), .DIM(DIM)) MEM_A(.clk(clk), .rst_n(rst_n), .en(enA), .WrEn(WrEnA), .Ain(dataIn), .Arow(???), .Aout(???));
-  
-  memB #(.BITS_AB(BITS_AB), .DIM(DIM)) MEM_B(.clk(clk), .rst_n(rst_n), .en(enB), .Bin(dataIn), .Bout(???));
-  
-  systolic_array #(.BITS_AB(BITS_AB), .BITS_C(BITS_C), .DIM(DIM)) SYS_ARR(.clk(clk), .rst_n(rst_n), .WrEn(WrEnS), .en(enS), .A(???), .B(???), .Cin(???), .Crow(???), .Cout(???));
-  
-  
-  always_ff @(posedge clk, negedge rst_n)
-    if (!rst_n)
-       state <= IDLE;
-    else
-       state <= nxt_state;
-
-  always_comb begin
-     enA = 1'b0;	
-     WrEnA = 1'b0;
-     enB = 1'b0;
-     enS = 1'b0;
-     WrEnS = 1'b0;
-
-     case (state)
-	IDLE: begin
-           
-	end
-	READ: begin
-	end
-	default: nxt_state = IDLE;
-     endcase
-  end
-  
-  
-  
-endmodule
-endmodule
-=======
 module tpuv1
   #(
     parameter BITS_AB=8,
     parameter BITS_C=16,
     parameter DIM=8,
-    parameter ADDRW=16;
-    parameter DATAW=64;
+    parameter ADDRW=16,
+    parameter DATAW=64
     )
    (
     input clk, rst_n, r_w, // r_w=0 read, =1 write
@@ -75,16 +15,22 @@ module tpuv1
   
   typedef enum {READWRITE, MULTIPLY} state_t;
   logic signed [BITS_AB-1:0] A [DIM-1:0];
+	logic signed [BITS_AB-1:0] dataIn_temp [DIM-1:0]
   logic signed [BITS_AB-1:0] B [DIM-1:0];
   logic signed [BITS_C-1:0] Cout [DIM-1:0];
   logic [$clog2(DIM)-1:0] Arow, Crow;
   logic [$clog2(DIM*3-2)-1:0] count;
   logic en_b, en_sys, WrEn_a, WrEn_sys, incr_count, rst_count;
   state_t state, nxt_state;
+	
+ genvar i;
+ generate
+	 for (i=0; i<DIM; i+=1) begin
+		 dataIn_temp[i] = dataIn[BITS_AB*i:BITS_AB*(i+1)-1]
   
-  memA #(.BITS_AB(BITS_AB), .DIM(DIM)) MEM_A(.clk(clk), .rst_n(rst_n), .en(en_sys), .WrEn(WrEn_a), .Ain(dataIn), .Arow(Arow), .Aout(A));
+  memA #(.BITS_AB(BITS_AB), .DIM(DIM)) MEM_A(.clk(clk), .rst_n(rst_n), .en(en_sys), .WrEn(WrEn_a), .Ain(dataIn_temp), .Arow(Arow), .Aout(A));
 
-  memB #(.BITS_AB(BITS_AB), .DIM(DIM)) MEM_B(.clk(clk), .rst_n(rst_n), .en(en_b), .Bin(dataIn), .Bout(B));
+		 memB #(.BITS_AB(BITS_AB), .DIM(DIM)) MEM_B(.clk(clk), .rst_n(rst_n), .en(en_b), .Bin(dataIn_temp), .Bout(B));
   
   systolic_array #(.BITS_AB(BITS_AB), .BITS_C(BITS_C), .DIM(DIM)) SYS_ARR(.clk(clk), .rst_n(rst_n), .WrEn(WrEn_sys), 
 		.en(en_sys), .A(A), .B(B), .Cin(dataIn), .Crow(Crow), .Cout(Cout));
@@ -101,7 +47,7 @@ module tpuv1
 
   always_ff @(posedge clk, negedge rst_n)
 	if (!rst_n)
-		state <= READ_C;
+		state <= READWRITE;
 	else
 		state <= nxt_state;
 
@@ -152,4 +98,3 @@ end
   
 endmodule
   
->>>>>>> ca15907733179b7edb82291386a6e68ffe453c70
