@@ -15,32 +15,55 @@ module tpuv1
   
   typedef enum {READWRITE, MULTIPLY} state_t;
   logic signed [BITS_AB-1:0] A [DIM-1:0];
-	logic signed [BITS_AB-1:0] dataIn_temp [DIM-1:0];
+  logic signed [BITS_AB-1:0] dataIn_temp [DIM-1:0];
+  logic signed [BITS_C-1:0] Cin [DIM-1:0];
   logic signed [BITS_AB-1:0] B [DIM-1:0];
   logic signed [BITS_C-1:0] Cout [DIM-1:0];
   logic [$clog2(DIM)-1:0] Arow, Crow;
   logic [$clog2(DIM*3-2)-1:0] count;
   logic en_b, en_sys, WrEn_a, WrEn_sys, incr_count, rst_count;
   state_t state, nxt_state;
-	/*
- genvar i;
- generate
-	 for (i=0; i<DIM; i+=1) begin
-		 dataIn_temp[i] = dataIn[BITS_AB*i:BITS_AB*(i+1)-1];
-	 end
- endgenerate
-  */
-  memA #(.BITS_AB(BITS_AB), .DIM(DIM)) MEM_A(.clk(clk), .rst_n(rst_n), .en(en_sys), .WrEn(WrEn_a), .Ain(dataIn), .Arow(Arow), .Aout(A));
+	
+  genvar i;
+  generate
+	for (i=0; i<DIM; i+=1) begin
+		assign dataIn_temp[i] = dataIn[BITS_AB*(i+1)-1:BITS_AB*i];
+	end
+	for(i=0;i<DIM;i++) begin
+	     assign Cin[i] = (addr[$clog2(BITS_C)-1:0] == 4'd0 && i < 4) ? dataIn[BITS_C*(i+1)-1:BITS_C*i] :
+		(addr[$clog2(BITS_C)-1:0] == 4'd0) ? Cout[i] :
+		(addr[$clog2(BITS_C)-1:0] == 4'd8 && i < 4)? Cout[i] : dataIn[BITS_C*(i-3)-1:BITS_C*(i-4)];
+	end
+/*
+	for(i=0;i<DIM;i++) begin
+		if(addr[$clog2(BITS_C)-1:0] == 4'd0 && i < 4) begin
+			assign Cin[i] = addr[$clog2(BITS_C)-1:0] == 4'd0) ? dataIn[BITS_C*(i+1)-1:BITS_C*i];
+		end else if(addr[$clog2(BITS_C)-1:0] == 4'd0) begin
+			assign Cin[i] = Cout[i];
+		end else if(addr[$clog2(BITS_C)-1:0] == 4'd8 && i < 4) begin
+			assign Cin[i] = Cout[i];
+		end else begin
+			assign Cin[i] = dataIn[BITS_C*(i-3)-1:BITS_C*(i-4)];
+		end
+	end
+*/
+  endgenerate
 
-		 memB #(.BITS_AB(BITS_AB), .DIM(DIM)) MEM_B(.clk(clk), .rst_n(rst_n), .en(en_b), .Bin(dataIn), .Bout(B));
+
+
+  memA #(.BITS_AB(BITS_AB), .DIM(DIM)) MEM_A(.clk(clk), .rst_n(rst_n), .en(en_sys), .WrEn(WrEn_a), .Ain(dataIn_temp), .Arow(Arow), .Aout(A));
+
+  memB #(.BITS_AB(BITS_AB), .DIM(DIM)) MEM_B(.clk(clk), .rst_n(rst_n), .en(en_b), .Bin(dataIn_temp), .Bout(B));
   
   systolic_array #(.BITS_AB(BITS_AB), .BITS_C(BITS_C), .DIM(DIM)) SYS_ARR(.clk(clk), .rst_n(rst_n), .WrEn(WrEn_sys), 
-		.en(en_sys), .A(A), .B(B), .Cin(dataIn), .Crow(Crow), .Cout(Cout));
+		.en(en_sys), .A(A), .B(B), .Cin(Cin), .Crow(Crow), .Cout(Cout));
   
   assign Arow = addr >> $clog2(BITS_AB);
   assign Crow = addr >> $clog2(BITS_C);
-	assign dataOut = (addr[$clog2(BITS_C)-1:0] == 4'd0) ? {Cout[3], Cout[2], Cout[1], Cout[0]} : {Cout[7], Cout[6], Cout[5], Cout[4]};
-	
+  assign dataOut = (addr[$clog2(BITS_C)-1:0] == 4'd0) ? {Cout[3], Cout[2], Cout[1], Cout[0]} : {Cout[7], Cout[6], Cout[5], Cout[4]};
+
+//  assign Cin = (addr[$clog2(BITS_C)-1:0] == 4'd0) ? {Cout[7],Cout[6],Cout[5],Cout[4],dataIn} : {dataIn,Cout[3],Cout[2],Cout[1],Cout[0]};
+
   always_ff @(posedge clk, negedge rst_n)
 	  if (!rst_n | rst_count)
 		count <= 0;
