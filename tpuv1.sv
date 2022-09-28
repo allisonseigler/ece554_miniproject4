@@ -13,7 +13,7 @@ module tpuv1
     input [ADDRW-1:0] addr
    );
   
-  typedef enum {READWRITE, MULTIPLY} state_t;
+  typedef enum {READWRITE, WRITE_C, MULTIPLY} state_t;
   logic signed [BITS_AB-1:0] A [DIM-1:0];
   logic signed [BITS_AB-1:0] dataIn_temp [DIM-1:0];
   logic signed [BITS_C-1:0] Cin [(DIM/2)-1:0];
@@ -24,7 +24,7 @@ module tpuv1
   logic [$clog2(DIM*3-2)-1:0] count;
   logic en_b, en_sys, WrEn_a, WrEn_sys, incr_count, rst_count;
   state_t state, nxt_state;
-  int j;
+
 
 /* ALLISON'S NOTES:
 	add to generate loop: save dataIn_temp into Cin_temp in correct form (2 dataIns for 1 Cin)
@@ -40,10 +40,8 @@ module tpuv1
 	for (i=0; i<DIM; i+=1) begin
 		assign dataIn_temp[i] = dataIn[BITS_AB*(i+1)-1:BITS_AB*i];
 	end
-	j=0;
 	for (i=0; i<DIM/2; i+=1) begin
-		assign Cin[i] = {dataIn_temp[j], dataIn_temp[j+1]};
-		j+=2;
+		assign Cin[i] = {dataIn_temp[2*i], dataIn_temp[2*i+1]};
 	end
 
 /*
@@ -147,7 +145,7 @@ end // don't think this will work but don't wanna delete yet
 				en_sys = 1'b1;
 			end else nxt_state = READWRITE;
 		end
-		WRITE_C begin:
+		WRITE_C: begin
 			nxt_state = READWRITE;
 			WrEn_sys = 1'b1;
 		end
