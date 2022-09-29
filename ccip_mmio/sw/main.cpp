@@ -189,8 +189,8 @@ int main(int argc, char *argv[]) {
 		{
 			for(int x_ind = 0; x_ind < DIM_FULL; ++x_ind)
 			{
-				A_vals[y_ind][x_ind] = x_ind;//static_cast<int8_t>(rand() % 255);
-				B_vals[y_ind][x_ind] = y_ind;//static_cast<int8_t>(rand() % 255);
+				A_vals[y_ind][x_ind] = static_cast<int8_t>(rand() % 255);
+				B_vals[y_ind][x_ind] = static_cast<int8_t>(rand() % 255);
 			}
 		}
 
@@ -271,8 +271,8 @@ int main(int argc, char *argv[]) {
 
 		fprintf(stdout, "Total Time: %ld ns\n", (end.tv_nsec - start.tv_nsec));
 		fprintf(stdout, "Total Compute Time: %ld ns\n", (end_compute.tv_nsec - start_compute.tv_nsec));
-		fprintf(stdout, "Ops Rate: %ld\n", ((2*(DIM)*(DIM)*(DIM)) / (end.tv_nsec - start.tv_nsec)));
-		fprintf(stdout, "Compute Ops Rate: %ld\n", ((2*(DIM)*(DIM)*(DIM)) / (end_compute.tv_nsec - start_compute.tv_nsec)));
+		fprintf(stdout, "Ops Rate: %ld\n", ((2*(DIM_FULL)*(DIM_FULL)*(DIM_FULL)) / (end.tv_nsec - start.tv_nsec)));
+		fprintf(stdout, "Compute Ops Rate: %ld\n", ((2*(DIM_FULL)*(DIM_FULL)*(DIM_FULL)) / (end_compute.tv_nsec - start_compute.tv_nsec)));
 	
 
 		fprintf(stdout, "All tests passed. No errors detected.\n");
