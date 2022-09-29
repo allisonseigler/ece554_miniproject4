@@ -240,7 +240,7 @@ int main(int argc, char *argv[]) {
 
 				fprintf(stdout, "Reading Output from C...\n");
 				for(int ii=0; ii < 8; ii++) {
-					unpack_from_C(ii, output[ii+i][j], afu);
+					unpack_from_C(ii, &output[ii+i][j], afu);
 				}
 				fprintf(stdout, "Finished reading Output from C...\n");
 			}
@@ -260,10 +260,10 @@ int main(int argc, char *argv[]) {
 			}
 		}
 
-		fprintf(stdout, "Total Time: %d ns", (end.tv_nsec - start.tv_nsec));
-		fprintf(stdout, "Total Compute Time: %d ns", (end_compute.tv_nsec - start_compute.tv_nsec));
-		fprintf(stdout, "Ops Rate: %d", ((2*(DIM)*(DIM)*(DIM)) / (end.tv_nsec - start.tv_nsec)));
-		fprintf(stdout, "Compute Ops Rate: %d", ((2*(DIM)*(DIM)*(DIM)) / (end_compute.tv_nsec - start_compute.tv_nsec)));
+		fprintf(stdout, "Total Time: %ld ns", (end.tv_nsec - start.tv_nsec));
+		fprintf(stdout, "Total Compute Time: %ld ns", (end_compute.tv_nsec - start_compute.tv_nsec));
+		fprintf(stdout, "Ops Rate: %ld", ((2*(DIM)*(DIM)*(DIM)) / (end.tv_nsec - start.tv_nsec)));
+		fprintf(stdout, "Compute Ops Rate: %ld", ((2*(DIM)*(DIM)*(DIM)) / (end_compute.tv_nsec - start_compute.tv_nsec)));
 	
 
 		fprintf(stdout, "All tests passed. No errors detected.\n");
