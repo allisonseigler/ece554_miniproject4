@@ -210,6 +210,12 @@ int main(int argc, char *argv[]) {
 			}
 		}
 
+		for(int y_ind = 0; y_ind < DIM; ++y_ind) {
+			for(int x_ind = 0; x_ind < DIM; ++x_ind) {
+				output[y_ind][x_ind] = 0;
+			}
+		}
+		
 		// Now try it with the AFU.
 		struct timespec start, end;
 		struct timespec start_compute, end_compute;
