@@ -17,7 +17,6 @@ module tpuv1
   logic signed [BITS_AB-1:0] A [DIM-1:0];
   logic signed [BITS_AB-1:0] dataIn_temp [DIM-1:0];
   logic signed [BITS_C-1:0] Cin [DIM-1:0];
-//  logic signed [BITS_C-1:0] Cin_first [(DIM/2)-1:0];
   logic signed [BITS_AB-1:0] B [DIM-1:0];
   logic signed [BITS_C-1:0] Cout [DIM-1:0];
   logic [$clog2(DIM)-1:0] Arow, Crow;
@@ -49,26 +48,6 @@ module tpuv1
 		end
 	end
 
-/*
-	for(i=0;i<DIM;i++) begin
-	     assign Cin[i] = (addr[$clog2(BITS_C)-1:0] == 4'd0 && i < 4) ? dataIn[BITS_C*(i+1)-1:BITS_C*i] :
-		(addr[$clog2(BITS_C)-1:0] == 4'd0) ? Cout[i] :
-		(addr[$clog2(BITS_C)-1:0] == 4'd8 && i < 4)? Cout[i] : dataIn[BITS_C*(i-3)-1:BITS_C*(i-4)];
-	end
-*/
-/*
-	for(i=0;i<DIM;i++) begin
-		if(addr[$clog2(BITS_C)-1:0] == 4'd0 && i < 4) begin
-			assign Cin[i] = addr[$clog2(BITS_C)-1:0] == 4'd0) ? dataIn[BITS_C*(i+1)-1:BITS_C*i];
-		end else if(addr[$clog2(BITS_C)-1:0] == 4'd0) begin
-			assign Cin[i] = Cout[i];
-		end else if(addr[$clog2(BITS_C)-1:0] == 4'd8 && i < 4) begin
-			assign Cin[i] = Cout[i];
-		end else begin
-			assign Cin[i] = dataIn[BITS_C*(i-3)-1:BITS_C*(i-4)];
-		end
-	end
-*/
   endgenerate
 
 
@@ -85,8 +64,6 @@ module tpuv1
   assign Crow = addr >> $clog2(BITS_C);
   assign dataOut = (addr[$clog2(BITS_C)-1:0] == 4'd0) ? {Cout[3], Cout[2], Cout[1], Cout[0]} : {Cout[7], Cout[6], Cout[5], Cout[4]};
 
-//  assign Cin = (addr[$clog2(BITS_C)-1:0] == 4'd0) ? {Cout[7],Cout[6],Cout[5],Cout[4],dataIn} : {dataIn,Cout[3],Cout[2],Cout[1],Cout[0]};
-
   always_ff @(posedge clk, negedge rst_n)
 	  if (!rst_n | rst_count)
 		count <= 0;
@@ -98,30 +75,7 @@ module tpuv1
 		state <= READWRITE;
 	else
 		state <= nxt_state;
-/*
 
-  always_ff @(posedge clk, negedge rst_n) begin
-	if (!rst_n) begin
-		for (int i = 0; i<DIM; i+=1) begin
-			Cin[i] = 16'd0;
-		end
-	end
-	else if (Cin_first) begin
-		j = 0;
-		for (int i = 0; i<DIM/2; i+=1) begin
-			Cin[i] = {dataIn_temp[j], dataIn_temp[j+1]};
-			j+=2;
-		end
-	end
-	else if (Cin_last) begin
-		j = 0;
-		for (int i = DIM/2; i<DIM; i+=1) begin
-			Cin[i] = {dataIn_temp[j], dataIn_temp[j+1]};
-			j+=2;
-		end
-	end
-end // don't think this will work but don't wanna delete yet
-*/
   always_comb begin
 	en_b = 1'b0;
 	en_sys = 1'b0;
@@ -129,18 +83,9 @@ end // don't think this will work but don't wanna delete yet
 	WrEn_sys = 1'b0;
 	incr_count = 1'b0;
 	rst_count = 1'b0;
-//	Cin_first = Cin_first;
-//	for (int i=0; i<DIM/2; i+=1) begin
-//		Cin[i] = {dataIn_temp[2*i], dataIn_temp[2*i+1]};
-//	end
-	
 
 	case (state)
 		READWRITE: begin
-//			for (int i = 0; i < DIM/2; i+=1) begin
-//				Cin_first[i] = 16'd0;
-//				Cin[i] = 16'd0;
-//			end
 			if (addr >= 16'h0100 && addr <= 16'h013f && r_w == 1'b1) begin
 				nxt_state = READWRITE;
 				WrEn_a = 1'b1;
@@ -152,10 +97,6 @@ end // don't think this will work but don't wanna delete yet
 			else if (addr >= 16'h0300 && addr <= 16'h037f && r_w == 1'b1) begin
 				nxt_state = READWRITE;
 				WrEn_sys = 1'b1;
-//				nxt_state = WRITE_C;
-//				for (int i = 0; i < DIM/2; i+=1) begin
-//					Cin_first[i] = {dataIn_temp[2*i], dataIn_temp[2*i+1]};
-//				end
 			end
 			else if (addr == 16'h0400 && r_w == 1'b1) begin
 				nxt_state = MULTIPLY;
@@ -164,10 +105,6 @@ end // don't think this will work but don't wanna delete yet
 				en_b = 1'b1;
 			end else nxt_state = READWRITE;
 		end
-//		WRITE_C: begin
-//			nxt_state = READWRITE;
-//			WrEn_sys = 1'b1;
-//		end
 		MULTIPLY: begin
 			if (count == DIM*3-2) begin
 				nxt_state = READWRITE;
