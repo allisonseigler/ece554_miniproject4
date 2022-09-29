@@ -264,12 +264,13 @@ int main(int argc, char *argv[]) {
 		fprintf(stdout, "Total Compute Time: %d ns", (end_compute.tv_nsec - start_compute.tv_nsec));
 		fprintf(stdout, "Ops Rate: %d", ((2*(DIM)*(DIM)*(DIM)) / (end.tv_nsec - start.tv_nsec)));
 		fprintf(stdout, "Compute Ops Rate: %d", ((2*(DIM)*(DIM)*(DIM)) / (end_compute.tv_nsec - start_compute.tv_nsec)));
-	}
+	
 
-	fprintf(stdout, "All tests passed. No errors detected.\n");
+		fprintf(stdout, "All tests passed. No errors detected.\n");
 
-	return 0;    
-  }
+		return 0;  
+	}  
+  
   // Exception handling for all the runtime errors that can occur within 
   // the AFU wrapper class.
   catch (const fpga_result& e) {    
