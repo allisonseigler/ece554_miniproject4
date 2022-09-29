@@ -215,15 +215,15 @@ int main(int argc, char *argv[]) {
 		struct timespec start_compute, end_compute;
 
 		clock_gettime(CLOCK_REALTIME, &start);
-		for (int i = 0; i < (DIM/8); i++) {
-			for(int j=0; j < (DIM/8); j++) {
+		for (int i = 0; i < DIM; i += 8) {
+			for(int j = 0; j < DIM; j += 8) {
 
 				for(int ii=0; ii < 8; ii++) {
 					fprintf(stdout, "Loading C Row: %d, Col: %d into AFU...", (i+ii), (j));
 					send_row_C(ii, &output[i+ii][j], afu);
 				}
 
-				for(int k=0; k < (DIM/8); k++) {
+				for(int k=0; k < DIM; k += 8) {
 					for(int ii=0; ii < 8; ii++) {
 						fprintf(stdout, "Loading A Row: %d, Col: %d into AFU...", (i+ii), (k));
 						send_row_A(ii, &A_vals[i+ii][k], afu);
