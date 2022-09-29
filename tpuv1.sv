@@ -16,8 +16,8 @@ module tpuv1
   typedef enum {READWRITE, WRITE_C, MULTIPLY} state_t;
   logic signed [BITS_AB-1:0] A [DIM-1:0];
   logic signed [BITS_AB-1:0] dataIn_temp [DIM-1:0];
-  logic signed [BITS_C-1:0] Cin [(DIM/2)-1:0];
-  logic signed [BITS_C-1:0] Cin_first [(DIM/2)-1:0];
+  logic signed [BITS_C-1:0] Cin [DIM-1:0];
+//  logic signed [BITS_C-1:0] Cin_first [(DIM/2)-1:0];
   logic signed [BITS_AB-1:0] B [DIM-1:0];
   logic signed [BITS_C-1:0] Cout [DIM-1:0];
   logic [$clog2(DIM)-1:0] Arow, Crow;
@@ -41,6 +41,13 @@ module tpuv1
 		assign dataIn_temp[i] = dataIn[BITS_AB*(i+1)-1:BITS_AB*i];
 	end
 
+	for(i=0;i<DIM;i++) begin
+		if(i < 4) begin
+			assign Cin[i] = (addr[$clog2(BITS_C)-1:0] == 4'd0) ? dataIn[BITS_C*(i+1)-1:BITS_C*i] : Cout[i];
+		end else begin
+			assign Cin[i] = (addr[$clog2(BITS_C)-1:0] == 4'd0) ? Cout[i] : dataIn[BITS_C*(i-3)-1:BITS_C*(i-4)];
+		end
+	end
 
 /*
 	for(i=0;i<DIM;i++) begin
@@ -48,7 +55,8 @@ module tpuv1
 		(addr[$clog2(BITS_C)-1:0] == 4'd0) ? Cout[i] :
 		(addr[$clog2(BITS_C)-1:0] == 4'd8 && i < 4)? Cout[i] : dataIn[BITS_C*(i-3)-1:BITS_C*(i-4)];
 	end
-
+*/
+/*
 	for(i=0;i<DIM;i++) begin
 		if(addr[$clog2(BITS_C)-1:0] == 4'd0 && i < 4) begin
 			assign Cin[i] = addr[$clog2(BITS_C)-1:0] == 4'd0) ? dataIn[BITS_C*(i+1)-1:BITS_C*i];
@@ -71,7 +79,7 @@ module tpuv1
   memB #(.BITS_AB(BITS_AB), .DIM(DIM)) MEM_B(.clk(clk), .rst_n(rst_n), .en(en_b), .Bin(dataIn_temp), .Bout(B));
   
   systolic_array #(.BITS_AB(BITS_AB), .BITS_C(BITS_C), .DIM(DIM)) SYS_ARR(.clk(clk), .rst_n(rst_n), .WrEn(WrEn_sys), 
-		.en(en_sys), .A(A), .B(B), .Cin({Cin_first,Cin}), .Crow(Crow), .Cout(Cout));
+		.en(en_sys), .A(A), .B(B), .Cin(Cin), .Crow(Crow), .Cout(Cout));
   
   assign Arow = addr >> $clog2(BITS_AB);
   assign Crow = addr >> $clog2(BITS_C);
@@ -121,18 +129,18 @@ end // don't think this will work but don't wanna delete yet
 	WrEn_sys = 1'b0;
 	incr_count = 1'b0;
 	rst_count = 1'b0;
-	Cin_first = Cin_first;
-	for (int i=0; i<DIM/2; i+=1) begin
-		Cin[i] = {dataIn_temp[2*i], dataIn_temp[2*i+1]};
-	end
+//	Cin_first = Cin_first;
+//	for (int i=0; i<DIM/2; i+=1) begin
+//		Cin[i] = {dataIn_temp[2*i], dataIn_temp[2*i+1]};
+//	end
 	
 
 	case (state)
 		READWRITE: begin
-			for (int i = 0; i < DIM/2; i+=1) begin
-				Cin_first[i] = 16'd0;
-				Cin[i] = 16'd0;
-			end
+//			for (int i = 0; i < DIM/2; i+=1) begin
+//				Cin_first[i] = 16'd0;
+//				Cin[i] = 16'd0;
+//			end
 			if (addr >= 16'h0100 && addr <= 16'h013f && r_w == 1'b1) begin
 				nxt_state = READWRITE;
 				WrEn_a = 1'b1;
@@ -142,10 +150,12 @@ end // don't think this will work but don't wanna delete yet
 				en_b = 1'b1;
 			end
 			else if (addr >= 16'h0300 && addr <= 16'h037f && r_w == 1'b1) begin
-				nxt_state = WRITE_C;
-				for (int i = 0; i < DIM/2; i+=1) begin
-					Cin_first[i] = {dataIn_temp[2*i], dataIn_temp[2*i+1]};
-				end
+				nxt_state = READWRITE;
+				WrEn_sys = 1'b1;
+//				nxt_state = WRITE_C;
+//				for (int i = 0; i < DIM/2; i+=1) begin
+//					Cin_first[i] = {dataIn_temp[2*i], dataIn_temp[2*i+1]};
+//				end
 			end
 			else if (addr == 16'h0400 && r_w == 1'b1) begin
 				nxt_state = MULTIPLY;
@@ -154,10 +164,10 @@ end // don't think this will work but don't wanna delete yet
 				en_b = 1'b1;
 			end else nxt_state = READWRITE;
 		end
-		WRITE_C: begin
-			nxt_state = READWRITE;
-			WrEn_sys = 1'b1;
-		end
+//		WRITE_C: begin
+//			nxt_state = READWRITE;
+//			WrEn_sys = 1'b1;
+//		end
 		MULTIPLY: begin
 			if (count == DIM*3-2) begin
 				nxt_state = READWRITE;
