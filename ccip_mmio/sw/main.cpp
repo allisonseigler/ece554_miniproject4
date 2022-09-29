@@ -220,6 +220,7 @@ int main(int argc, char *argv[]) {
 		// Now try it with the AFU.
 		struct timespec start, end;
 		struct timespec start_compute, end_compute;
+    long total_compute = 0;
 
 		clock_gettime(CLOCK_REALTIME, &start);
 		for (int i = 0; i < DIM_FULL; i += 8) {
@@ -244,6 +245,7 @@ int main(int argc, char *argv[]) {
           afu.write(0x0400, 100);
 
           clock_gettime(CLOCK_REALTIME, &end_compute);
+          total_compute += (end_compute.tv_nsec - start_compute.tv_nsec)/1000000000;
           fprintf(stdout, "Ending Calculation...\n");
 
           fprintf(stdout, "Reading Output from C...\n");
@@ -271,8 +273,8 @@ int main(int argc, char *argv[]) {
 
 		fprintf(stdout, "Total Time: %ld ns\n", (end.tv_nsec - start.tv_nsec));
 		fprintf(stdout, "Total Compute Time: %ld ns\n", (end_compute.tv_nsec - start_compute.tv_nsec));
-		fprintf(stdout, "Ops Rate: %ld\n", ((2*(DIM_FULL)*(DIM_FULL)*(DIM_FULL)) / (end.tv_nsec - start.tv_nsec)));
-		fprintf(stdout, "Compute Ops Rate: %ld\n", ((2*(DIM_FULL)*(DIM_FULL)*(DIM_FULL)) / (end_compute.tv_nsec - start_compute.tv_nsec)));
+		fprintf(stdout, "Ops Rate: %ld\n", ((2*(DIM_FULL)*(DIM_FULL)*(DIM_FULL)) /((end.tv_nsec - start.tv_nsec)/(1000000000))));
+		fprintf(stdout, "Compute Ops Rate: %ld\n", ((2*(DIM_FULL)*(DIM_FULL)*(DIM_FULL)) / (total_compute)));
 	
 
 		fprintf(stdout, "All tests passed. No errors detected.\n");
