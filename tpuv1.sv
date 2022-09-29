@@ -151,6 +151,7 @@ end // don't think this will work but don't wanna delete yet
 				nxt_state = MULTIPLY;
 				incr_count = 1'b1;
 				en_sys = 1'b1;
+				en_b = 1'b1;
 			end else nxt_state = READWRITE;
 		end
 		WRITE_C: begin
@@ -164,6 +165,7 @@ end // don't think this will work but don't wanna delete yet
 			end else begin
 				nxt_state = MULTIPLY;
 				en_sys = 1'b1;
+				en_b = 1'b1;
 				incr_count = 1'b1;
 			end		
 		end
