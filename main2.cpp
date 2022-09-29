@@ -220,7 +220,7 @@ int main(int argc, char *argv[]) {
 
 				for(int ii=0; ii < 8; ii++) {
 					fprintf(stdout, "Loading C Row: %d, Col: %d into AFU...", (i+ii), (j));
-					send_row_C(ii, output[i+ii][j], afu)
+					send_row_C(ii, output[i+ii][j], afu);
 				}
 
 				for(int k=0; k < (DIM/8); k++) {
