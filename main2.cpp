@@ -219,15 +219,15 @@ int main(int argc, char *argv[]) {
 			for(int j=0; j < (DIM/8); j++) {
 
 				for(int ii=0; ii < 8; ii++) {
-					fprintf(stdout, "Loading C Row: " + (i+ii) + ", Col: " + (j) + " into AFU...\n");
-					send_row_C(ii, C[i+ii][j], afu)
+					fprintf(stdout, "Loading C Row: %d, Col: %d into AFU...", (i+ii), (j));
+					send_row_C(ii, output[i+ii][j], afu)
 				}
 
 				for(int k=0; k < (DIM/8); k++) {
 					for(int ii=0; ii < 8; ii++) {
-						fprintf(stdout, "Loading A Row: " + (i+ii) + ", Col: " + (k) + " into AFU...\n");
+						fprintf(stdout, "Loading A Row: %d, Col: %d into AFU...", (i+ii), (k));
 						send_row_A(ii, A[i+ii][k], afu);
-						fprintf(stdout, "Loading B Row: " + (k+ii) + ", Col: " + (j) + " into AFU...\n");
+						fprintf(stdout, "Loading B Row: %d, Col: %d into AFU...", (k+ii), (j));
 						send_row_B(ii, B[k+ii][j], afu);
 					}
 				}
@@ -260,10 +260,10 @@ int main(int argc, char *argv[]) {
 			}
 		}
 
-		fprintf(stdout, "Total Time: " + (end.tv_nsec - start.tv_nsec) + " ns");
-		fprintf(stdout, "Total Compute Time: " + (end_compute.tv_nsec - start_compute.tv_nsec) + " ns");
-		fprintf(stdout, "Ops Rate: " + ((2*(DIM)*(DIM)*(DIM)) / (end.tv_nsec - start.tv_nsec)));
-		fprintf(stdout, "Compute Ops Rate: " + ((2*(DIM)*(DIM)*(DIM)) / (end_compute.tv_nsec - start_compute.tv_nsec)))
+		fprintf(stdout, "Total Time: %d ns", (end.tv_nsec - start.tv_nsec));
+		fprintf(stdout, "Total Compute Time: %d ns", (end_compute.tv_nsec - start_compute.tv_nsec));
+		fprintf(stdout, "Ops Rate: %d", ((2*(DIM)*(DIM)*(DIM)) / (end.tv_nsec - start.tv_nsec)));
+		fprintf(stdout, "Compute Ops Rate: %d", ((2*(DIM)*(DIM)*(DIM)) / (end_compute.tv_nsec - start_compute.tv_nsec)));
 	}
 
 	fprintf(stdout, "All tests passed. No errors detected.\n");
