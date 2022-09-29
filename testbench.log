@@ -1,0 +1,1040 @@
+couldn't open "transcript": permission denied
+# Reading C:/intelFPGA/19.1/modelsim_ase/tcl/vsim/pref.tcl
+# Loading project minilab5
+# Compile of afu.sv failed with 4 errors.
+# Compile of tpuv1.sv was successful.
+# 2 compiles, 1 failed with 4 errors.
+# Compile of afu.sv failed with 4 errors.
+# Compile of tpuv1.sv was successful.
+# 2 compiles, 1 failed with 4 errors.
+vsim work.tpuv1_integration_tb
+# vsim work.tpuv1_integration_tb 
+# Start time: 20:01:43 on Sep 28,2022
+# Loading sv_std.std
+# Loading work.tpuv1_integration_tb_v2_sv_unit
+# Loading work.tpuv1_integration_tb
+# Loading work.tpuv1
+# Loading work.memA
+# Loading work.memB
+# Loading work.systolic_array
+# Loading work.fifo_a
+# Loading work.fifo
+# Loading work.tpumac
+add wave -position insertpoint  \
+sim:/tpuv1_integration_tb/DUT/clk \
+sim:/tpuv1_integration_tb/DUT/r_w \
+sim:/tpuv1_integration_tb/DUT/dataIn \
+sim:/tpuv1_integration_tb/DUT/dataOut \
+sim:/tpuv1_integration_tb/DUT/addr \
+sim:/tpuv1_integration_tb/DUT/A \
+sim:/tpuv1_integration_tb/DUT/Cin \
+sim:/tpuv1_integration_tb/DUT/Cin_first \
+sim:/tpuv1_integration_tb/DUT/B
+run
+add wave -position insertpoint  \
+sim:/tpuv1_integration_tb/DUT/SYS_ARR/WrEn \
+sim:/tpuv1_integration_tb/DUT/SYS_ARR/en \
+sim:/tpuv1_integration_tb/DUT/SYS_ARR/A \
+sim:/tpuv1_integration_tb/DUT/SYS_ARR/B \
+sim:/tpuv1_integration_tb/DUT/SYS_ARR/Cin \
+sim:/tpuv1_integration_tb/DUT/SYS_ARR/Crow \
+sim:/tpuv1_integration_tb/DUT/SYS_ARR/Cout
+restart
+run
+# WARNING: No extended dataflow license exists
+run
+run
+run
+run
+run -all
+# Errors found:          64, dumping test case
+# 
+# A x B
+#  -25 -100  -24   22    0   -8   17   -4   124   28  -89  -60   89   -5  -94  -91 
+#  -34 -112  -34 -122  -51   79 -105   30  -106   23 -125   20   92  -78   -1  -84 
+#   44  -98  -78   82   49 -103    2  -31   -28 -123 -101  -83   24  -64 -116 -120 
+#   47   20   17   72   29  -11 -126  113    53   15   45  -41  -63 -104 -126  -63 
+#   21  126   57   56  -95   24  -72  -31    83 -113   94  -85  122 -127 -127   -8 
+#  -94   13   56  -63   26  -55  -45  -42    47 -105   67   77  117  -42    1 -119 
+#   42  -32  -91   63  126  125   24  -30   -65   15  -44  -93   89   78  -70  -37 
+#   51   -4  -67 -119 -127  -83 -108  125    19  113 -126   41   94   87  -88  116 
+# Dumping result
+# -15128     0     0     0     0     0     0     0 
+# 22260     0     0     0     0     0     0     0 
+# -16492     0     0     0     0     0     0     0 
+# 19964     0     0     0     0     0     0     0 
+# 10664     0     0     0     0     0     0     0 
+# -25296     0     0     0     0     0     0     0 
+# 28148     0     0     0     0     0     0     0 
+# 24368     0     0     0     0     0     0     0 
+# Dumping expected
+#  7781   925 17359 -1771 -13186  8487  1616 12028 
+#  9017 -1893 16309 29037 -9964 21349 -31646 22640 
+# 20881 11607 21425 -15041 -20947  -550 -9060 16617 
+# 19275  9522 -11865  6256  3554 -13589 -20300  6314 
+# -12046   947 -21104  9581 -6803 -16661  4089 -25891 
+# -16241 -12750  4281  -147 -13073 -5732 13754  7841 
+# 28690 -17815 -30305 -2737 23954 -20432 -16215 -14434 
+# -2730 -22173 -31124 26873 -13007 -26749 30582 -24915 
+# Errors found:         128, dumping test case
+# 
+# A x B
+#  -88  -81   77   30   -2   37   73    0    74   89  -95   28   72  106  -50   51 
+#  -61   94   27   65  -19  121  -60  -84    -2  -69 -118   59    8   33  126 -109 
+#  -78 -113    3  -75   -4  -80    1  -86  -120    6  -42   69  -23   -1  -67   32 
+#   11  -46 -123   -8  -60  120   61   89   -39   45   79  -84    0  116   56 -128 
+#  -53   85   53  -81   30   13  124   99     5  -32   -3   44   68   75  -78  -27 
+#   71 -128   62 -118 -111 -107 -111   85   114  -35  -38   35   32  -94  -19  -17 
+#  -15   56  -95  -68  -31  -70   -3   57    95  -16   40   -4   95   96  -46   38 
+#   15   26  -32  100 -104 -101 -127  -69   -97  -81   89  -79  115  -72   28   -4 
+# Dumping result
+#  3404  5198 -2024  3542  5612 -4784 -5336 -3864 
+#  6142  9379 -3652  6391 10126 -8632 -9628 -6972 
+# -31968 16720 19008 32272 12832 -20608 -15424 -29248 
+#  3256  4972 -1936  3388  5368 -4576 -5104 -3696 
+# 19980 30510 -11880 20790 -32596 -28080 -31320 -22680 
+# -26418 25195 15708 -27489 21982 -28408 -24124 29988 
+# -12506 -19097  7436 -13013 -20618 17576 19604 14196 
+# -21608 32540 12848 -22484 29912 30368 -31664 24528 
+# Dumping expected
+# -5617 -2830 18574 -3535  -772 -5218 -13190  5164 
+#  5670 -4691 -15713 10516 -17041 -8362 16316 -24301 
+# -3684  7376 10131  1470 -19216 -7192 -15361 19885 
+# 26520 -7410 14898 -15936 19043 -17489  3533  4205 
+# -3484 -25327  -433  7450 21266 -6458  -246  3381 
+# -28871 12401  3957 -6274 -9080 -25491 -12263 -30617 
+# -1119 -9956  1141 -6264  3475 -7672 15845   480 
+# -16408 18333 -2320 -10806 -28280  8550 24211 -15918 
+# Errors found:         192, dumping test case
+# 
+# A x B
+# -125    2 -113   71  -45   54   24  -37   119    2   58  -79  117  125  -17   -9 
+#  116 -119   41  -96   57  105  -76   88   -50    1  -49   29   59  124  -95    3 
+#  -44   62   95    3   87  111  120  -36    77  -34  -56   51  -54  -56  -37   74 
+#  -11   70  -32  -58  -22   -7 -128   38    64   72   61 -101  113  -90   -2 -108 
+#    4  -93 -114   99    3   24  -39  -78   -82 -112  100  -10  -48  -87 -121    4 
+#   -9 -104  -72  -92  -82  -46  -27   57    91  102   24    7 -124    8  -62  -22 
+#   57   72  120   84  126 -101 -111    6    16  -92   84  110 -120 -102  -15   24 
+#   76    5  -85  -41  113   36  -48  -33   -88  103  -75    2  -34  -81  -18 -104 
+# Dumping result
+# -20111 13689 -6760 -5915 -11492 -19604 11323 18421 
+# 13804 -9396  4640  4060  7888 13456 -7772 -12644 
+# -18174 -32238 15920 13930 27064 -19368 -26666 22154 
+# -17850 12150 -6000 -5250 -10200 -17400 10050 16350 
+# -23086 15714 -7760 -6790 -13192 -22504 12998 21146 
+# 20911 30375 -15000 -13125 -25500 22036 25125 -24661 
+# 30107 -20493 10120  8855 17204 29348 -16951 -27577 
+#  2737 -1863   920   805  1564  2668 -1541 -2507 
+# Dumping expected
+# -6888 13235  4898   393 -6540 -10543  8377 -11843 
+# 12688 12189  -357 -8847 -16139  2593 -5843 -1057 
+#  7226 -16210 13417 22851 28139 -19407 -27224 11818 
+# -15210 14400 -21784 -6708 14009 26153  -831 -2753 
+# 10862  8585 20662 -23134 16536 -3331 12925 -12783 
+# -10213  8549 -12853   957 -2755  3194 25034 -1515 
+# -4028 -11430 -1416 -18944 -32015   839 -19844 -1051 
+# -4229 -7872 17029 -12277  6138 16596 -13131  -591 
+# Errors found:         256, dumping test case
+# 
+# A x B
+#  -13  126  -61   54  -59  -30  -52  -12  -102   26   40    5  -97 -101   74   63 
+#   74  -45  104 -118   75  -59  -68  -19    10 -108  -73  -90   13  -96  -77  -97 
+#  106  -27  -71  -47  115   23    3  -88   -88  -61  -15 -124  -73  -65 -116   65 
+#  -41   12  127   62    9  -36  -73   28    31  -16   87  -74  -54 -124  -60  -88 
+#  -29  -52  -74  117   42 -125 -105  -91   -29   79  127   -4 -121  -76   12  -61 
+#   74   16  -65  -60  -10    5  -19   95    29   79   31  -78  -65    5   96   61 
+#   91  -46 -118   -3   74  -33 -109   19   -18 -117   21  -32  100  114 -128 -110 
+#  -32   19   99  104   96 -118  115   62    50  -25  -84  -73   25  -81  -91 -108 
+# Dumping result
+#  4794 -4841 -3948  -329  2256  4230  1739  -141 
+#  5712 -5768 -4704  -392  2688  5040  2072  -168 
+# -1428  1442  1176    98  -672 -1260  -518    42 
+# -8976  9064  7392   616 -4224 -7920 -3256   264 
+# 32334 -32651 -26628 -2219 15216 28530 11729  -951 
+# -3672  3708  3024   252 -1728 -3240 -1332   108 
+# 12750 -12875 -10500  -875  6000 11250  4625  -375 
+# 30346 -30001 28980  2415 -16560 -31050 -12765  1035 
+# Dumping expected
+# 10805 -11736 -12612 -2721  8025 -14136 -2668 -12973 
+# -24420 12023  2283  8121 -21498 -7490  9626 27529 
+# -13413 23506 25960 19316 -20222  1174 32191 12380 
+# -3543 -5393 -2885 -18557 -13835 -24408 -18962  1313 
+#  5074 15507 20823 24638 -8511 -10193 13647  -698 
+#  1999  4574 -11947  4753  2375 -6421  9531 -3090 
+#   358 30097 12997 23828 -17883 -16487 -31449  6200 
+# -7210 -27330 10637 -21228  -388 -17721 13443 26560 
+# Errors found:         320, dumping test case
+# 
+# A x B
+#  -66  -60   42   87  -89   77  108    1  -105   97   70  -27   84 -103  -83 -100 
+#  122  -94  110   30 -118   -9  101  -48    -8   46  114  -16 -128   -8  -20  -48 
+#   52  -72  -94  -88  -16    7  -64    9   -29  125   32  -29  -27  -49   65 -110 
+#   14  -30  -27   51   72 -122  -27   83    68 -117   30  -87  -55   46  123  -33 
+#  -66   10  -49   98   32  -21   11   55    59   34  -90  -65   28   -1 -107   53 
+#  122 -127  -70   14   71 -128   21  -59    87  -51 -120  -56    1  119  -60  -29 
+#   -7  -74  -14  -45 -117   40  123 -117    93  -81  127 -105  -17  -82  -82   98 
+#  -20   93  101  -16   45   15  -43 -114    21   32  -60  121  -87   20   -4 -107 
+# Dumping result
+# -10500 -2500  2100 -7800 -12100 -12400 -11600 -9700 
+# -9870 -2350  1974 -7332 -11374 -11656 -10904 -9118 
+# 27930  6650 -5586 20748 32186 -32552 30856 25802 
+# -1470  -350   294 -1092 -1694 -1736 -1624 -1358 
+# -7350 -1750  1470 -5460 -8470 -8680 -8120 -6790 
+# 16380  3900 -3276 12168 18876 19344 18096 15132 
+# 22155  5275 -4431 16458 25531 26164 24476 20467 
+# -6405 -1525  1281 -4758 -7381 -7564 -7076 -5917 
+# Dumping expected
+# 23621 -29760  4920 -15791 -8121  9638 16152  5516 
+# -12568  4480 29651 -15829 16806 -26019  7670 -11737 
+# -14240  4849 -18284 18587 20826  2055 -13306  3214 
+# -4113  4149 -2023 11478 -1928 -8249  5454 -2846 
+# 17174 -20505 -4371  -887 -14988 11294 10861  5774 
+# -15045   957  7419 -7241 -31276 -25681 -11817 16980 
+#  4232 -20293 17647 -16013 16589 -7620 -3883 24489 
+# -5094 17435  7483 -15529 -3507 -1383  2664 -3112 
+# Errors found:         384, dumping test case
+# 
+# A x B
+#  -78   15   92  -30   26   24   -5   70   127 -124   55   -5  -37   10  -90   64 
+#  -16   55   -6  -56   18  -65  -91  -36   -86  -16   97   11  -25   34   91  -90 
+#   25   11   35 -110  114  -12  -14  -29    49   26  112   16   45 -121  -51  -55 
+#  -10  -50  123  -15   57   56  -24 -106   113 -105  -55  -34   55  106    6   10 
+#  -47  124  -36   44   20  -75   74   -3   117   58   80  116   84  111  -58 -126 
+# -115   68    5   20   73   79  -35 -104     9 -119  -99  -55 -126  -44   73   35 
+#  126   74  -40    3   84   23   91  124    69   -6   61  -38   45  111  -46   40 
+#  -32  -10    7   12 -104 -105  -49  -42    12 -115 -101  -27  105 -118   71 -121 
+# Dumping result
+# 14478  3648 14478 -6384  3192  5244  7410 -5472 
+# -25019 -6304 -25019 11032 -5516 -9062 -12805  9456 
+#  2540   640  2540 -1120   560   920  1300  -960 
+#  3937   992  3937 -1736   868  1426  2015 -1488 
+# 12827  3232 12827 -5656  2828  4646  6565 -4848 
+# -1143  -288 -1143   504  -252  -414  -585   432 
+# -3941 15520 -3941 -27160 13580 22310 31525 -23280 
+# 24515 -10336 24515 18088 -9044 -14858 -20995 15504 
+# Dumping expected
+# -6325  5606  1448  3043 11286 -21567  8957 -22808 
+# -18574 20293 12823 12586 -2306 -4495  2256 -10031 
+#  3430 20643 24795 19495  1738  -221 -12597 -14250 
+# 11607 15789 17459  9284 -8148 -4566 -15653  3589 
+# -6690  8274 16833  3241 13584 26854  7362 -13570 
+# -12359 18205  6119  8984 -12437 15691 12162 -8804 
+# 25819 -30834  6933  1115 13126 12715 -1123 -17509 
+# -18503 14637   722 -3539   288 -7642  -676 11138 
+# Errors found:         448, dumping test case
+# 
+# A x B
+#   91  -64  -41  -61  125   72   92  126    73   12   48   39  -16  -63 -102  107 
+#   17   33  -71   79    9  -37 -112 -105  -115  -43  -53  102   32  -31   68  -49 
+#  -81  123   85  102  -19   83   38 -113    74  -78  -11  -11   17   71  -78   40 
+#   39   99 -101   65  122  102  -72  106    38  -35   33  -48 -125  -64   24  -57 
+#   61  -61  103   -8  -15  -23    3 -100   124 -112  -73   48  -13   12 -121  -32 
+#  116  -40   88   39   20  123   74 -128    58   90   79   25  -83   34   83  -47 
+#   15  -27  -88  115   75  119   52   96   -91  -16  108 -100  -13 -120  -40   53 
+# -120   23   78  -58   27  118  117  125    70   49  -34  102  -87   12   78  -93 
+# Dumping result
+# 24820 26436 20740 -18700 28560 -29496 -17340 -30600 
+# -13651 21505 -11407 10285 -15708 -19822  9537 16830 
+# 15914 -25070 13298 -11990 18312 23108 -11118 -19620 
+# 26280 24136 21960 -19800 30240 -27376 -18360 -32400 
+# -2920  4600 -2440  2200 -3360 -4240  2040  3600 
+# 21316 31956 17812 -16060 24528 30952 -14892 -26280 
+# 26061 24481 21777 -19635 29988 -27694 -18207 -32130 
+# 22630 29886 18910 -17050 26040 -32676 -15810 -27900 
+# Dumping expected
+# 28775  6359  8413 11852 -16335 -8336 -14901   484 
+# -2994 -6133 -9651  1015  3247 -1161    74 -1861 
+# -18802 -13008  7914 -10607 -3378 -2525 11298 -7878 
+# 21474  3676 -12347 -29508 -25636 -2013 17044 -30795 
+#  8319 -9737  7766 -16387 10588  3351 -26610 25112 
+# 14982 -3743 28608 -18817 -6810 -8310 -25635 25074 
+# 20248 10362 13192  4446 28681 -13858 12468 -21312 
+#   458  5366  5986  4888 -11309  7893 17925 -19375 
+# Errors found:         512, dumping test case
+# 
+# A x B
+#   14 -117   -5  -85  -45   57  -88   61   -53 -111  -20   65   82  -92   59    7 
+#   73  -53  -28  -84  124  -44 -113   11   -21   68  -96   15  -71   28  -36   33 
+#  -79   57   19   50   46  -55  122 -127   105   -2   -6 -102  -36  -57   36  -36 
+#  101  -20  -31   53    3 -118  -16  108    60   41   91   -7  -81  -39   46  -55 
+#  -72  127   38  -96  -29  -42  -51   50     2 -126   60 -113   25   40   27   44 
+#  -86   81 -114   75 -110  115 -114   17    72   50   88  -82    5  -15  -67  -80 
+#  -93   -6  110   88   28   74   79    5   125 -104   27 -108   92   61  124   82 
+#   73 -128   41  -53  -71  -99   18 -126   117   55  100   66   61   90  -37  -37 
+# Dumping result
+# 11024 -10192 -22464 -5200  2704 13312 16224 10192 
+#  6042 -5586 -12312 -2850  1482  7296  8892  5586 
+# -1749  1617  3564   825  -429 -2112 -2574 -1617 
+# -4240  3920  8640  2000 -1040 -5120 -6240 -3920 
+#  3975 -3675 -8100 -1875   975  4800  5850  3675 
+#  7208 -6664 -14688 -3400  1768  8704 10608  6664 
+# -15105 13965 30780  7125 -3705 -18240 -22230 -13965 
+# 18285 -16905 28276 -8625  4485 22080 26910 16905 
+# Dumping expected
+# -3759  8042  9287 14201 11305 -3497 -17255 -14921 
+# -26494 -20562 -2231  9920 10716 -3611 -6780  3693 
+#  4508 -13562 -10942 -28814 -10907  4508 21025 19021 
+# -2862 -9010  5073 27249 11126   482 10008  2512 
+# -4228 22224 -21529  9550 -11090 12617 -18011  3651 
+# -8814 -14778  3595 23162 -26400  2204 31452 -21967 
+# -27807  5534 20609 30131 -9645  3965  8146 -8044 
+# -19818 -23868 -19327  4895  9591 -22167 19563  8660 
+# Errors found:         576, dumping test case
+# 
+# A x B
+#  -33  -27    4  -40   34   73  -34 -103   104  -50   13   41  -23 -126   94   32 
+#   71    7   32 -103  -75   77   28  104    39  100  -99   31  122   84  -32   93 
+# -122   40   94  -98  -26  -37    2  -41   -54   64   96   62   25  -90   -8  -60 
+#   -9  -89  120  -20 -126   38   73  100    32  -23   43  -73 -121   92  -29  116 
+#   73   44 -113   92  -36   41   29   71   -48   -4  124    5   -4  -78  -46   94 
+#   44   60   46  -88  -93   53  -90  -90  -126  -76   99  -24   75  -52   15   30 
+#   14   20   83  -25   44  -83  -59  -90    79   -8   24  -26  -61  -89   33   40 
+#   86  105  -80   52   83  -58   88   93  -122 -111    9  -13  -28   33   80   96 
+# Dumping result
+# -13104 -6930 -3402 10332 -3150  4914 -4536 -4158 
+# 14664  7755  3807 -11562  3525 -5499  5076  4653 
+# -19552 -10340 -5076 15416 -4700  7332 -6768 -6204 
+#  9048  4785  2349 -7134  2175 -3393  3132  2871 
+# 20904 11055  5427 -16482  5025 -7839  7236  6633 
+# -16432 -8690 -4266 12956 -3950  6162 -5688 -5214 
+# -9984 -5280 -2592  7872 -2400  3744 -3456 -3168 
+# -27160 20295  9963 -30258  9225 -14391 13284 12177 
+# Dumping expected
+# -6931  6147 10608  1619 12702 -8971 -10941 -14309 
+# -13945 -15753 -1196  8328 13939 -17928 23030 -4581 
+# -8270 25821 -7944 10459 20249  3677 -13231 -24602 
+# -16700 -14378 10144  1032 -9130 -14327 18397 -16269 
+#  8545 -19683 -9369 -12206 -10806 13570 12598 29702 
+#  3272 15822 -13991 14713 30463 -3202  -697 -25372 
+# 11619 23781   108 13081  6936 -6689 -11679 -14926 
+# 17953 -7067 -7222 -3665 -10114  1747  9512 -23677 
+# Errors found:         640, dumping test case
+# 
+# A x B
+#  -99   30   74   -1 -126  -57   27   34    19  110  116 -125   17  -82   42  -54 
+#  -77   88 -100  -37    5  117  -70   47     5  -99  -89  105    6   50   72  -96 
+#   37   37 -114  -36   31  109  106   38   109 -126   26   -1 -102    2  -20  -99 
+#  -76 -116   10   45  -21  -29  -34 -106    43  -58   66  -24 -111  -33   76 -113 
+#  106   12  -71   62  -63   90  125  -75   -76  -26  126  -17   27   57  -86  -21 
+#  -49   12 -111   93  106   73   -4   49  -105  -22 -117  -59  -84 -111   37   -1 
+#   61  -48 -118   89   54   63   70   17    69 -122  -29  116  -86  125  -15  -92 
+#  -82    9    3 -105 -116  -21  -51  119     4   50 -112  -84   11 -104  102 -119 
+# Dumping result
+# -2242 13098 -2832  2832   472 -10856   944 -10974 
+#  -513  2997  -648   648   108 -2484   216 -2511 
+#  3952 -23088  4992 -4992  -832 19136 -1664 19344 
+# -6213 -29239 -7848  7848  1308 -30084  2616 -30411 
+#  3534 -20646  4464 -4464  -744 17112 -1488 17298 
+#  3211 -18759  4056 -4056  -676 15548 -1352 15717 
+#  3572 -20868  4512 -4512  -752 17296 -1504 17484 
+# -4636 27084 -5856  5856   976 -22448  1952 -22692 
+# Dumping expected
+# 23852 -20190 -26094 21256 -9502  8783  8236 -8574 
+# -30821  5750 27437   797 10370 -14605 12033 10416 
+# -19421  2623 -20518  2384  -542 -1258  7415 -5230 
+#  2872  -714 18343  3258 -4376  7763 -17893 25377 
+#   664 -3520  -219  3154 -18602  -436 10671 -8195 
+# -24772   590 -4057 -5425 -2149 -6330  6737 -5788 
+# -13937 10688  9653 -12626 -6761 -7508  6601 -6721 
+#  2277 11451 24363  1011 14336 -12387 11266  8120 
+# ARRRR!  Ye codes be blast! Aye, there be errors. Get debugging!
+# ** Note: $stop    : C:/Users/Zander/Downloads/School/ECE554/Minilab/ece554_miniproject5/tpuv1_integration_tb_v2.sv(230)
+#    Time: 13605 ps  Iteration: 1  Instance: /tpuv1_integration_tb
+# Break in Module tpuv1_integration_tb at C:/Users/Zander/Downloads/School/ECE554/Minilab/ece554_miniproject5/tpuv1_integration_tb_v2.sv line 230
+restart
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+# Errors found:          64, dumping test case
+# 
+# A x B
+#  -25 -100  -24   22    0   -8   17   -4   124   28  -89  -60   89   -5  -94  -91 
+#  -34 -112  -34 -122  -51   79 -105   30  -106   23 -125   20   92  -78   -1  -84 
+#   44  -98  -78   82   49 -103    2  -31   -28 -123 -101  -83   24  -64 -116 -120 
+#   47   20   17   72   29  -11 -126  113    53   15   45  -41  -63 -104 -126  -63 
+#   21  126   57   56  -95   24  -72  -31    83 -113   94  -85  122 -127 -127   -8 
+#  -94   13   56  -63   26  -55  -45  -42    47 -105   67   77  117  -42    1 -119 
+#   42  -32  -91   63  126  125   24  -30   -65   15  -44  -93   89   78  -70  -37 
+#   51   -4  -67 -119 -127  -83 -108  125    19  113 -126   41   94   87  -88  116 
+# Dumping result
+# -15128     0     0     0     0     0     0     0 
+# 22260     0     0     0     0     0     0     0 
+# -16492     0     0     0     0     0     0     0 
+run
+# 19964     0     0     0     0     0     0     0 
+# 10664     0     0     0     0     0     0     0 
+# -25296     0     0     0     0     0     0     0 
+# 28148     0     0     0     0     0     0     0 
+# 24368     0     0     0     0     0     0     0 
+# Dumping expected
+run
+#  7781   925 17359 -1771 -13186  8487  1616 12028 
+#  9017 -1893 16309 29037 -9964 21349 -31646 22640 
+# 20881 11607 21425 -15041 -20947  -550 -9060 16617 
+# 19275  9522 -11865  6256  3554 -13589 -20300  6314 
+# -12046   947 -21104  9581 -6803 -16661  4089 -25891 
+run
+# -16241 -12750  4281  -147 -13073 -5732 13754  7841 
+# 28690 -17815 -30305 -2737 23954 -20432 -16215 -14434 
+# -2730 -22173 -31124 26873 -13007 -26749 30582 -24915 
+run
+add wave -position insertpoint  \
+sim:/tpuv1_integration_tb/DUT/dataIn_temp
+restart
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+# Errors found:          64, dumping test case
+# 
+# A x B
+#  -25 -100  -24   22    0   -8   17   -4   124   28  -89  -60   89   -5  -94  -91 
+#  -34 -112  -34 -122  -51   79 -105   30  -106   23 -125   20   92  -78   -1  -84 
+#   44  -98  -78   82   49 -103    2  -31   -28 -123 -101  -83   24  -64 -116 -120 
+#   47   20   17   72   29  -11 -126  113    53   15   45  -41  -63 -104 -126  -63 
+#   21  126   57   56  -95   24  -72  -31    83 -113   94  -85  122 -127 -127   -8 
+#  -94   13   56  -63   26  -55  -45  -42    47 -105   67   77  117  -42    1 -119 
+#   42  -32  -91   63  126  125   24  -30   -65   15  -44  -93   89   78  -70  -37 
+#   51   -4  -67 -119 -127  -83 -108  125    19  113 -126   41   94   87  -88  116 
+# Dumping result
+# -15128     0     0     0     0     0     0     0 
+# 22260     0     0     0     0     0     0     0 
+# -16492     0     0     0     0     0     0     0 
+run
+# 19964     0     0     0     0     0     0     0 
+# 10664     0     0     0     0     0     0     0 
+# -25296     0     0     0     0     0     0     0 
+# 28148     0     0     0     0     0     0     0 
+# 24368     0     0     0     0     0     0     0 
+# Dumping expected
+quit -sim
+# End time: 20:44:14 on Sep 28,2022, Elapsed time: 0:42:31
+# Errors: 0, Warnings: 1
+# Compile of afu.sv failed with 4 errors.
+# Compile of tpuv1.sv was successful.
+# 2 compiles, 1 failed with 4 errors.
+vsim work.tpuv1_integration_tb
+# vsim work.tpuv1_integration_tb 
+# Start time: 20:44:20 on Sep 28,2022
+# Loading sv_std.std
+# Loading work.tpuv1_integration_tb_v2_sv_unit
+# Loading work.tpuv1_integration_tb
+# Loading work.tpuv1
+# Loading work.memA
+# Loading work.memB
+# Loading work.systolic_array
+# Loading work.fifo_a
+# Loading work.fifo
+# Loading work.tpumac
+add wave -position insertpoint  \
+sim:/tpuv1_integration_tb/DUT/clk \
+sim:/tpuv1_integration_tb/DUT/r_w \
+sim:/tpuv1_integration_tb/DUT/dataIn \
+sim:/tpuv1_integration_tb/DUT/dataOut \
+sim:/tpuv1_integration_tb/DUT/addr \
+sim:/tpuv1_integration_tb/DUT/A \
+sim:/tpuv1_integration_tb/DUT/B
+add wave -position insertpoint  \
+sim:/tpuv1_integration_tb/DUT/dataIn_temp \
+sim:/tpuv1_integration_tb/DUT/Cin \
+sim:/tpuv1_integration_tb/DUT/Cin_first
+add wave -position insertpoint  \
+sim:/tpuv1_integration_tb/DUT/SYS_ARR/WrEn \
+sim:/tpuv1_integration_tb/DUT/SYS_ARR/en \
+sim:/tpuv1_integration_tb/DUT/SYS_ARR/A \
+sim:/tpuv1_integration_tb/DUT/SYS_ARR/B \
+sim:/tpuv1_integration_tb/DUT/SYS_ARR/Cin \
+sim:/tpuv1_integration_tb/DUT/SYS_ARR/Crow \
+sim:/tpuv1_integration_tb/DUT/SYS_ARR/Cout
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+# Break key hit
+run -all
+# No errors, testcase passed
+# 
+# No errors, testcase passed
+# 
+# No errors, testcase passed
+# 
+# No errors, testcase passed
+# 
+# No errors, testcase passed
+# 
+# No errors, testcase passed
+# 
+# No errors, testcase passed
+# 
+# No errors, testcase passed
+# 
+# No errors, testcase passed
+# 
+# No errors, testcase passed
+# 
+# YAHOO!!! All tests passed.
+# ** Note: $stop    : C:/Users/Zander/Downloads/School/ECE554/Minilab/ece554_miniproject5/tpuv1_integration_tb_v2.sv(230)
+#    Time: 10305 ps  Iteration: 1  Instance: /tpuv1_integration_tb
+# Break in Module tpuv1_integration_tb at C:/Users/Zander/Downloads/School/ECE554/Minilab/ece554_miniproject5/tpuv1_integration_tb_v2.sv line 230
+# Compile of tpuv1_integration_tb_v2.sv was successful.
+# Compile of afu.sv failed with 4 errors.
+# Compile of afu_tc.sv was successful.
+# Compile of fifo.sv was successful.
+# Compile of fifo_a.sv was successful.
+# Compile of memA.sv was successful.
+# Compile of memB.sv was successful.
+# Compile of systolic_array.sv was successful.
+# Compile of tpumac.sv was successful.
+# Compile of tpuv1.sv was successful.
+# 10 compiles, 1 failed with 4 errors.
+restart -f
+# Loading work.tpuv1_integration_tb_v2_sv_unit
+# Loading work.tpuv1_integration_tb
+# Loading work.tpuv1
+# Loading work.memA
+# Loading work.memB
+# Loading work.systolic_array
+# Loading work.fifo_a
+# Loading work.fifo
+# Loading work.tpumac
+# ** Error (suppressible): (vsim-12003) C:/Users/Zander/Downloads/School/ECE554/Minilab/ece554_miniproject5/tpuv1.sv(46): Variable '/tpuv1_integration_tb/DUT/Cin' written by continuous and procedural assignments. See C:/Users/Zander/Downloads/School/ECE554/Minilab/ece554_miniproject5/tpuv1.sv(142).
+#    Time: 0 ps  Iteration: 0  Region: /tpuv1_integration_tb/DUT/genblk2[0]/genblk1 File: C:/Users/Zander/Downloads/School/ECE554/Minilab/ece554_miniproject5/tpuv1.sv
+# ** Error (suppressible): (vsim-12003) C:/Users/Zander/Downloads/School/ECE554/Minilab/ece554_miniproject5/tpuv1.sv(46): Variable '/tpuv1_integration_tb/DUT/Cin' written by continuous and procedural assignments. See C:/Users/Zander/Downloads/School/ECE554/Minilab/ece554_miniproject5/tpuv1.sv(142).
+#    Time: 0 ps  Iteration: 0  Region: /tpuv1_integration_tb/DUT/genblk2[1]/genblk1 File: C:/Users/Zander/Downloads/School/ECE554/Minilab/ece554_miniproject5/tpuv1.sv
+# ** Error (suppressible): (vsim-12003) C:/Users/Zander/Downloads/School/ECE554/Minilab/ece554_miniproject5/tpuv1.sv(46): Variable '/tpuv1_integration_tb/DUT/Cin' written by continuous and procedural assignments. See C:/Users/Zander/Downloads/School/ECE554/Minilab/ece554_miniproject5/tpuv1.sv(142).
+#    Time: 0 ps  Iteration: 0  Region: /tpuv1_integration_tb/DUT/genblk2[2]/genblk1 File: C:/Users/Zander/Downloads/School/ECE554/Minilab/ece554_miniproject5/tpuv1.sv
+# ** Error (suppressible): (vsim-12003) C:/Users/Zander/Downloads/School/ECE554/Minilab/ece554_miniproject5/tpuv1.sv(46): Variable '/tpuv1_integration_tb/DUT/Cin' written by continuous and procedural assignments. See C:/Users/Zander/Downloads/School/ECE554/Minilab/ece554_miniproject5/tpuv1.sv(142).
+#    Time: 0 ps  Iteration: 0  Region: /tpuv1_integration_tb/DUT/genblk2[3]/genblk1 File: C:/Users/Zander/Downloads/School/ECE554/Minilab/ece554_miniproject5/tpuv1.sv
+# ** Error (suppressible): (vsim-12003) C:/Users/Zander/Downloads/School/ECE554/Minilab/ece554_miniproject5/tpuv1.sv(48): Variable '/tpuv1_integration_tb/DUT/Cin' written by continuous and procedural assignments. See C:/Users/Zander/Downloads/School/ECE554/Minilab/ece554_miniproject5/tpuv1.sv(142).
+#    Time: 0 ps  Iteration: 0  Region: /tpuv1_integration_tb/DUT/genblk2[4]/genblk1 File: C:/Users/Zander/Downloads/School/ECE554/Minilab/ece554_miniproject5/tpuv1.sv
+# ** Error (suppressible): (vsim-12003) C:/Users/Zander/Downloads/School/ECE554/Minilab/ece554_miniproject5/tpuv1.sv(48): Variable '/tpuv1_integration_tb/DUT/Cin' written by continuous and procedural assignments. See C:/Users/Zander/Downloads/School/ECE554/Minilab/ece554_miniproject5/tpuv1.sv(142).
+#    Time: 0 ps  Iteration: 0  Region: /tpuv1_integration_tb/DUT/genblk2[5]/genblk1 File: C:/Users/Zander/Downloads/School/ECE554/Minilab/ece554_miniproject5/tpuv1.sv
+# ** Error (suppressible): (vsim-12003) C:/Users/Zander/Downloads/School/ECE554/Minilab/ece554_miniproject5/tpuv1.sv(48): Variable '/tpuv1_integration_tb/DUT/Cin' written by continuous and procedural assignments. See C:/Users/Zander/Downloads/School/ECE554/Minilab/ece554_miniproject5/tpuv1.sv(142).
+#    Time: 0 ps  Iteration: 0  Region: /tpuv1_integration_tb/DUT/genblk2[6]/genblk1 File: C:/Users/Zander/Downloads/School/ECE554/Minilab/ece554_miniproject5/tpuv1.sv
+# ** Error (suppressible): (vsim-12003) C:/Users/Zander/Downloads/School/ECE554/Minilab/ece554_miniproject5/tpuv1.sv(48): Variable '/tpuv1_integration_tb/DUT/Cin' written by continuous and procedural assignments. See C:/Users/Zander/Downloads/School/ECE554/Minilab/ece554_miniproject5/tpuv1.sv(142).
+#    Time: 0 ps  Iteration: 0  Region: /tpuv1_integration_tb/DUT/genblk2[7]/genblk1 File: C:/Users/Zander/Downloads/School/ECE554/Minilab/ece554_miniproject5/tpuv1.sv
+# Compile of tpuv1_integration_tb_v2.sv was successful.
+# Compile of afu.sv failed with 4 errors.
+# Compile of afu_tc.sv was successful.
+# Compile of fifo.sv was successful.
+# Compile of fifo_a.sv was successful.
+# Compile of memA.sv was successful.
+# Compile of memB.sv was successful.
+# Compile of systolic_array.sv was successful.
+# Compile of tpumac.sv was successful.
+# Compile of tpuv1.sv was successful.
+# 10 compiles, 1 failed with 4 errors.
+restart -f
+# No Design Loaded!
+vsim work.tpuv1_integration_tb
+# vsim work.tpuv1_integration_tb 
+# Start time: 20:44:20 on Sep 28,2022
+# Loading sv_std.std
+# Loading work.tpuv1_integration_tb_v2_sv_unit
+# Loading work.tpuv1_integration_tb
+# Loading work.tpuv1
+# Loading work.memA
+# Loading work.memB
+# Loading work.systolic_array
+# Loading work.fifo_a
+# Loading work.fifo
+# Loading work.tpumac
+quit -sim
+# End time: 21:13:20 on Sep 28,2022, Elapsed time: 0:29:00
+# Errors: 8, Warnings: 0
+# Compile of tpuv1_integration_tb_v2.sv was successful.
+# Compile of afu.sv failed with 4 errors.
+# Compile of afu_tc.sv was successful.
+# Compile of fifo.sv was successful.
+# Compile of fifo_a.sv was successful.
+# Compile of memA.sv was successful.
+# Compile of memB.sv was successful.
+# Compile of systolic_array.sv was successful.
+# Compile of tpumac.sv was successful.
+# Compile of tpuv1.sv was successful.
+# 10 compiles, 1 failed with 4 errors.
+vsim work.tpuv1_integration_tb
+# vsim work.tpuv1_integration_tb 
+# Start time: 21:13:26 on Sep 28,2022
+# Loading sv_std.std
+# Loading work.tpuv1_integration_tb_v2_sv_unit
+# Loading work.tpuv1_integration_tb
+# Loading work.tpuv1
+# Loading work.memA
+# Loading work.memB
+# Loading work.systolic_array
+# Loading work.fifo_a
+# Loading work.fifo
+# Loading work.tpumac
+run -all
+# Error! C Init was not conducted properly. Expected: 0, Got:                    x at address 0308
+# Error! C Init was not conducted properly. Expected: 0, Got:                    x at address 0318
+# Error! C Init was not conducted properly. Expected: 0, Got:                    x at address 0328
+# Error! C Init was not conducted properly. Expected: 0, Got:                    x at address 0338
+# Error! C Init was not conducted properly. Expected: 0, Got:                    x at address 0348
+# Error! C Init was not conducted properly. Expected: 0, Got:                    x at address 0358
+# Error! C Init was not conducted properly. Expected: 0, Got:                    x at address 0368
+# Error! C Init was not conducted properly. Expected: 0, Got:                    x at address 0378
+# Errors found:          40, dumping test case
+# 
+# A x B
+#  -25 -100  -24   22    0   -8   17   -4   124   28  -89  -60   89   -5  -94  -91 
+#  -34 -112  -34 -122  -51   79 -105   30  -106   23 -125   20   92  -78   -1  -84 
+#   44  -98  -78   82   49 -103    2  -31   -28 -123 -101  -83   24  -64 -116 -120 
+#   47   20   17   72   29  -11 -126  113    53   15   45  -41  -63 -104 -126  -63 
+#   21  126   57   56  -95   24  -72  -31    83 -113   94  -85  122 -127 -127   -8 
+#  -94   13   56  -63   26  -55  -45  -42    47 -105   67   77  117  -42    1 -119 
+#   42  -32  -91   63  126  125   24  -30   -65   15  -44  -93   89   78  -70  -37 
+#   51   -4  -67 -119 -127  -83 -108  125    19  113 -126   41   94   87  -88  116 
+# Dumping result
+#  7781   925 17359 -1771     0     0     0     0 
+#  9017 -1893 16309 29037     0     0     0     0 
+# 20881 11607 21425 -15041     0     0     0     0 
+# 19275  9522 -11865  6256     0     0     0     0 
+# -12046   947 -21104  9581     0     0     0     0 
+# -16241 -12750  4281  -147     0     0     0     0 
+# 28690 -17815 -30305 -2737     0     0     0     0 
+# -2730 -22173 -31124 26873     0     0     0     0 
+# Dumping expected
+#  7781   925 17359 -1771 -13186  8487  1616 12028 
+#  9017 -1893 16309 29037 -9964 21349 -31646 22640 
+# 20881 11607 21425 -15041 -20947  -550 -9060 16617 
+# 19275  9522 -11865  6256  3554 -13589 -20300  6314 
+# -12046   947 -21104  9581 -6803 -16661  4089 -25891 
+# -16241 -12750  4281  -147 -13073 -5732 13754  7841 
+# 28690 -17815 -30305 -2737 23954 -20432 -16215 -14434 
+# -2730 -22173 -31124 26873 -13007 -26749 30582 -24915 
+# Error! C Init was not conducted properly. Expected: 0, Got:                    x at address 0308
+# Error! C Init was not conducted properly. Expected: 0, Got:                    x at address 0318
+# Error! C Init was not conducted properly. Expected: 0, Got:                    x at address 0328
+# Error! C Init was not conducted properly. Expected: 0, Got:                    x at address 0338
+# Error! C Init was not conducted properly. Expected: 0, Got:                    x at address 0348
+# Error! C Init was not conducted properly. Expected: 0, Got:                    x at address 0358
+# Error! C Init was not conducted properly. Expected: 0, Got:                    x at address 0368
+# Error! C Init was not conducted properly. Expected: 0, Got:                    x at address 0378
+# Errors found:          80, dumping test case
+# 
+# A x B
+#  -88  -81   77   30   -2   37   73    0    74   89  -95   28   72  106  -50   51 
+#  -61   94   27   65  -19  121  -60  -84    -2  -69 -118   59    8   33  126 -109 
+#  -78 -113    3  -75   -4  -80    1  -86  -120    6  -42   69  -23   -1  -67   32 
+#   11  -46 -123   -8  -60  120   61   89   -39   45   79  -84    0  116   56 -128 
+#  -53   85   53  -81   30   13  124   99     5  -32   -3   44   68   75  -78  -27 
+#   71 -128   62 -118 -111 -107 -111   85   114  -35  -38   35   32  -94  -19  -17 
+#  -15   56  -95  -68  -31  -70   -3   57    95  -16   40   -4   95   96  -46   38 
+#   15   26  -32  100 -104 -101 -127  -69   -97  -81   89  -79  115  -72   28   -4 
+# Dumping result
+# -5617 -2830 18574 -3535     0     0     0     0 
+#  5670 -4691 -15713 10516     0     0     0     0 
+# -3684  7376 10131  1470     0     0     0     0 
+# 26520 -7410 14898 -15936     0     0     0     0 
+# -3484 -25327  -433  7450     0     0     0     0 
+# -28871 12401  3957 -6274     0     0     0     0 
+# -1119 -9956  1141 -6264     0     0     0     0 
+# -16408 18333 -2320 -10806     0     0     0     0 
+# Dumping expected
+# -5617 -2830 18574 -3535  -772 -5218 -13190  5164 
+#  5670 -4691 -15713 10516 -17041 -8362 16316 -24301 
+# -3684  7376 10131  1470 -19216 -7192 -15361 19885 
+# 26520 -7410 14898 -15936 19043 -17489  3533  4205 
+# -3484 -25327  -433  7450 21266 -6458  -246  3381 
+# -28871 12401  3957 -6274 -9080 -25491 -12263 -30617 
+# -1119 -9956  1141 -6264  3475 -7672 15845   480 
+# -16408 18333 -2320 -10806 -28280  8550 24211 -15918 
+# Error! C Init was not conducted properly. Expected: 0, Got:                    x at address 0308
+# Error! C Init was not conducted properly. Expected: 0, Got:                    x at address 0318
+# Error! C Init was not conducted properly. Expected: 0, Got:                    x at address 0328
+# Error! C Init was not conducted properly. Expected: 0, Got:                    x at address 0338
+# Error! C Init was not conducted properly. Expected: 0, Got:                    x at address 0348
+# Error! C Init was not conducted properly. Expected: 0, Got:                    x at address 0358
+# Error! C Init was not conducted properly. Expected: 0, Got:                    x at address 0368
+# Error! C Init was not conducted properly. Expected: 0, Got:                    x at address 0378
+# Errors found:         120, dumping test case
+# 
+# A x B
+# -125    2 -113   71  -45   54   24  -37   119    2   58  -79  117  125  -17   -9 
+#  116 -119   41  -96   57  105  -76   88   -50    1  -49   29   59  124  -95    3 
+#  -44   62   95    3   87  111  120  -36    77  -34  -56   51  -54  -56  -37   74 
+#  -11   70  -32  -58  -22   -7 -128   38    64   72   61 -101  113  -90   -2 -108 
+#    4  -93 -114   99    3   24  -39  -78   -82 -112  100  -10  -48  -87 -121    4 
+#   -9 -104  -72  -92  -82  -46  -27   57    91  102   24    7 -124    8  -62  -22 
+#   57   72  120   84  126 -101 -111    6    16  -92   84  110 -120 -102  -15   24 
+#   76    5  -85  -41  113   36  -48  -33   -88  103  -75    2  -34  -81  -18 -104 
+# Dumping result
+# -6888 13235  4898   393     0     0     0     0 
+# 12688 12189  -357 -8847     0     0     0     0 
+#  7226 -16210 13417 22851     0     0     0     0 
+# -15210 14400 -21784 -6708     0     0     0     0 
+# 10862  8585 20662 -23134     0     0     0     0 
+# -10213  8549 -12853   957     0     0     0     0 
+# -4028 -11430 -1416 -18944     0     0     0     0 
+# -4229 -7872 17029 -12277     0     0     0     0 
+# Dumping expected
+# -6888 13235  4898   393 -6540 -10543  8377 -11843 
+# 12688 12189  -357 -8847 -16139  2593 -5843 -1057 
+#  7226 -16210 13417 22851 28139 -19407 -27224 11818 
+# -15210 14400 -21784 -6708 14009 26153  -831 -2753 
+# 10862  8585 20662 -23134 16536 -3331 12925 -12783 
+# -10213  8549 -12853   957 -2755  3194 25034 -1515 
+# -4028 -11430 -1416 -18944 -32015   839 -19844 -1051 
+# -4229 -7872 17029 -12277  6138 16596 -13131  -591 
+# Error! C Init was not conducted properly. Expected: 0, Got:                    x at address 0308
+# Error! C Init was not conducted properly. Expected: 0, Got:                    x at address 0318
+# Error! C Init was not conducted properly. Expected: 0, Got:                    x at address 0328
+# Error! C Init was not conducted properly. Expected: 0, Got:                    x at address 0338
+# Error! C Init was not conducted properly. Expected: 0, Got:                    x at address 0348
+# Error! C Init was not conducted properly. Expected: 0, Got:                    x at address 0358
+# Error! C Init was not conducted properly. Expected: 0, Got:                    x at address 0368
+# Error! C Init was not conducted properly. Expected: 0, Got:                    x at address 0378
+# Errors found:         160, dumping test case
+# 
+# A x B
+#  -13  126  -61   54  -59  -30  -52  -12  -102   26   40    5  -97 -101   74   63 
+#   74  -45  104 -118   75  -59  -68  -19    10 -108  -73  -90   13  -96  -77  -97 
+#  106  -27  -71  -47  115   23    3  -88   -88  -61  -15 -124  -73  -65 -116   65 
+#  -41   12  127   62    9  -36  -73   28    31  -16   87  -74  -54 -124  -60  -88 
+#  -29  -52  -74  117   42 -125 -105  -91   -29   79  127   -4 -121  -76   12  -61 
+#   74   16  -65  -60  -10    5  -19   95    29   79   31  -78  -65    5   96   61 
+#   91  -46 -118   -3   74  -33 -109   19   -18 -117   21  -32  100  114 -128 -110 
+#  -32   19   99  104   96 -118  115   62    50  -25  -84  -73   25  -81  -91 -108 
+# Dumping result
+# 10805 -11736 -12612 -2721     0     0     0     0 
+# -24420 12023  2283  8121     0     0     0     0 
+# -13413 23506 25960 19316     0     0     0     0 
+# -3543 -5393 -2885 -18557     0     0     0     0 
+#  5074 15507 20823 24638     0     0     0     0 
+#  1999  4574 -11947  4753     0     0     0     0 
+#   358 30097 12997 23828     0     0     0     0 
+# -7210 -27330 10637 -21228     0     0     0     0 
+# Dumping expected
+# 10805 -11736 -12612 -2721  8025 -14136 -2668 -12973 
+# -24420 12023  2283  8121 -21498 -7490  9626 27529 
+# -13413 23506 25960 19316 -20222  1174 32191 12380 
+# -3543 -5393 -2885 -18557 -13835 -24408 -18962  1313 
+#  5074 15507 20823 24638 -8511 -10193 13647  -698 
+#  1999  4574 -11947  4753  2375 -6421  9531 -3090 
+#   358 30097 12997 23828 -17883 -16487 -31449  6200 
+# -7210 -27330 10637 -21228  -388 -17721 13443 26560 
+# Error! C Init was not conducted properly. Expected: 0, Got:                    x at address 0308
+# Error! C Init was not conducted properly. Expected: 0, Got:                    x at address 0318
+# Error! C Init was not conducted properly. Expected: 0, Got:                    x at address 0328
+# Error! C Init was not conducted properly. Expected: 0, Got:                    x at address 0338
+# Error! C Init was not conducted properly. Expected: 0, Got:                    x at address 0348
+# Error! C Init was not conducted properly. Expected: 0, Got:                    x at address 0358
+# Error! C Init was not conducted properly. Expected: 0, Got:                    x at address 0368
+# Error! C Init was not conducted properly. Expected: 0, Got:                    x at address 0378
+# Errors found:         200, dumping test case
+# 
+# A x B
+#  -66  -60   42   87  -89   77  108    1  -105   97   70  -27   84 -103  -83 -100 
+#  122  -94  110   30 -118   -9  101  -48    -8   46  114  -16 -128   -8  -20  -48 
+#   52  -72  -94  -88  -16    7  -64    9   -29  125   32  -29  -27  -49   65 -110 
+#   14  -30  -27   51   72 -122  -27   83    68 -117   30  -87  -55   46  123  -33 
+#  -66   10  -49   98   32  -21   11   55    59   34  -90  -65   28   -1 -107   53 
+#  122 -127  -70   14   71 -128   21  -59    87  -51 -120  -56    1  119  -60  -29 
+#   -7  -74  -14  -45 -117   40  123 -117    93  -81  127 -105  -17  -82  -82   98 
+#  -20   93  101  -16   45   15  -43 -114    21   32  -60  121  -87   20   -4 -107 
+# Dumping result
+# 23621 -29760  4920 -15791     0     0     0     0 
+# -12568  4480 29651 -15829     0     0     0     0 
+# -14240  4849 -18284 18587     0     0     0     0 
+# -4113  4149 -2023 11478     0     0     0     0 
+# 17174 -20505 -4371  -887     0     0     0     0 
+# -15045   957  7419 -7241     0     0     0     0 
+#  4232 -20293 17647 -16013     0     0     0     0 
+# -5094 17435  7483 -15529     0     0     0     0 
+# Dumping expected
+# 23621 -29760  4920 -15791 -8121  9638 16152  5516 
+# -12568  4480 29651 -15829 16806 -26019  7670 -11737 
+# -14240  4849 -18284 18587 20826  2055 -13306  3214 
+# -4113  4149 -2023 11478 -1928 -8249  5454 -2846 
+# 17174 -20505 -4371  -887 -14988 11294 10861  5774 
+# -15045   957  7419 -7241 -31276 -25681 -11817 16980 
+#  4232 -20293 17647 -16013 16589 -7620 -3883 24489 
+# -5094 17435  7483 -15529 -3507 -1383  2664 -3112 
+# Error! C Init was not conducted properly. Expected: 0, Got:                    x at address 0308
+# Error! C Init was not conducted properly. Expected: 0, Got:                    x at address 0318
+# Error! C Init was not conducted properly. Expected: 0, Got:                    x at address 0328
+# Error! C Init was not conducted properly. Expected: 0, Got:                    x at address 0338
+# Error! C Init was not conducted properly. Expected: 0, Got:                    x at address 0348
+# Error! C Init was not conducted properly. Expected: 0, Got:                    x at address 0358
+# Error! C Init was not conducted properly. Expected: 0, Got:                    x at address 0368
+# Error! C Init was not conducted properly. Expected: 0, Got:                    x at address 0378
+# Errors found:         240, dumping test case
+# 
+# A x B
+#  -78   15   92  -30   26   24   -5   70   127 -124   55   -5  -37   10  -90   64 
+#  -16   55   -6  -56   18  -65  -91  -36   -86  -16   97   11  -25   34   91  -90 
+#   25   11   35 -110  114  -12  -14  -29    49   26  112   16   45 -121  -51  -55 
+#  -10  -50  123  -15   57   56  -24 -106   113 -105  -55  -34   55  106    6   10 
+#  -47  124  -36   44   20  -75   74   -3   117   58   80  116   84  111  -58 -126 
+# -115   68    5   20   73   79  -35 -104     9 -119  -99  -55 -126  -44   73   35 
+#  126   74  -40    3   84   23   91  124    69   -6   61  -38   45  111  -46   40 
+#  -32  -10    7   12 -104 -105  -49  -42    12 -115 -101  -27  105 -118   71 -121 
+# Dumping result
+# -6325  5606  1448  3043     0     0     0     0 
+# -18574 20293 12823 12586     0     0     0     0 
+#  3430 20643 24795 19495     0     0     0     0 
+# 11607 15789 17459  9284     0     0     0     0 
+# -6690  8274 16833  3241     0     0     0     0 
+# -12359 18205  6119  8984     0     0     0     0 
+# 25819 -30834  6933  1115     0     0     0     0 
+# -18503 14637   722 -3539     0     0     0     0 
+# Dumping expected
+# -6325  5606  1448  3043 11286 -21567  8957 -22808 
+# -18574 20293 12823 12586 -2306 -4495  2256 -10031 
+#  3430 20643 24795 19495  1738  -221 -12597 -14250 
+# 11607 15789 17459  9284 -8148 -4566 -15653  3589 
+# -6690  8274 16833  3241 13584 26854  7362 -13570 
+# -12359 18205  6119  8984 -12437 15691 12162 -8804 
+# 25819 -30834  6933  1115 13126 12715 -1123 -17509 
+# -18503 14637   722 -3539   288 -7642  -676 11138 
+# Error! C Init was not conducted properly. Expected: 0, Got:                    x at address 0308
+# Error! C Init was not conducted properly. Expected: 0, Got:                    x at address 0318
+# Error! C Init was not conducted properly. Expected: 0, Got:                    x at address 0328
+# Error! C Init was not conducted properly. Expected: 0, Got:                    x at address 0338
+# Error! C Init was not conducted properly. Expected: 0, Got:                    x at address 0348
+# Error! C Init was not conducted properly. Expected: 0, Got:                    x at address 0358
+# Error! C Init was not conducted properly. Expected: 0, Got:                    x at address 0368
+# Error! C Init was not conducted properly. Expected: 0, Got:                    x at address 0378
+# Errors found:         280, dumping test case
+# 
+# A x B
+#   91  -64  -41  -61  125   72   92  126    73   12   48   39  -16  -63 -102  107 
+#   17   33  -71   79    9  -37 -112 -105  -115  -43  -53  102   32  -31   68  -49 
+#  -81  123   85  102  -19   83   38 -113    74  -78  -11  -11   17   71  -78   40 
+#   39   99 -101   65  122  102  -72  106    38  -35   33  -48 -125  -64   24  -57 
+#   61  -61  103   -8  -15  -23    3 -100   124 -112  -73   48  -13   12 -121  -32 
+#  116  -40   88   39   20  123   74 -128    58   90   79   25  -83   34   83  -47 
+#   15  -27  -88  115   75  119   52   96   -91  -16  108 -100  -13 -120  -40   53 
+# -120   23   78  -58   27  118  117  125    70   49  -34  102  -87   12   78  -93 
+# Dumping result
+# 28775  6359  8413 11852     0     0     0     0 
+# -2994 -6133 -9651  1015     0     0     0     0 
+# -18802 -13008  7914 -10607     0     0     0     0 
+# 21474  3676 -12347 -29508     0     0     0     0 
+#  8319 -9737  7766 -16387     0     0     0     0 
+# 14982 -3743 28608 -18817     0     0     0     0 
+# 20248 10362 13192  4446     0     0     0     0 
+#   458  5366  5986  4888     0     0     0     0 
+# Dumping expected
+# 28775  6359  8413 11852 -16335 -8336 -14901   484 
+# -2994 -6133 -9651  1015  3247 -1161    74 -1861 
+# -18802 -13008  7914 -10607 -3378 -2525 11298 -7878 
+# 21474  3676 -12347 -29508 -25636 -2013 17044 -30795 
+#  8319 -9737  7766 -16387 10588  3351 -26610 25112 
+# 14982 -3743 28608 -18817 -6810 -8310 -25635 25074 
+# 20248 10362 13192  4446 28681 -13858 12468 -21312 
+#   458  5366  5986  4888 -11309  7893 17925 -19375 
+# Error! C Init was not conducted properly. Expected: 0, Got:                    x at address 0308
+# Error! C Init was not conducted properly. Expected: 0, Got:                    x at address 0318
+# Error! C Init was not conducted properly. Expected: 0, Got:                    x at address 0328
+# Error! C Init was not conducted properly. Expected: 0, Got:                    x at address 0338
+# Error! C Init was not conducted properly. Expected: 0, Got:                    x at address 0348
+# Error! C Init was not conducted properly. Expected: 0, Got:                    x at address 0358
+# Error! C Init was not conducted properly. Expected: 0, Got:                    x at address 0368
+# Error! C Init was not conducted properly. Expected: 0, Got:                    x at address 0378
+# Errors found:         320, dumping test case
+# 
+# A x B
+#   14 -117   -5  -85  -45   57  -88   61   -53 -111  -20   65   82  -92   59    7 
+#   73  -53  -28  -84  124  -44 -113   11   -21   68  -96   15  -71   28  -36   33 
+#  -79   57   19   50   46  -55  122 -127   105   -2   -6 -102  -36  -57   36  -36 
+#  101  -20  -31   53    3 -118  -16  108    60   41   91   -7  -81  -39   46  -55 
+#  -72  127   38  -96  -29  -42  -51   50     2 -126   60 -113   25   40   27   44 
+#  -86   81 -114   75 -110  115 -114   17    72   50   88  -82    5  -15  -67  -80 
+#  -93   -6  110   88   28   74   79    5   125 -104   27 -108   92   61  124   82 
+#   73 -128   41  -53  -71  -99   18 -126   117   55  100   66   61   90  -37  -37 
+# Dumping result
+# -3759  8042  9287 14201     0     0     0     0 
+# -26494 -20562 -2231  9920     0     0     0     0 
+#  4508 -13562 -10942 -28814     0     0     0     0 
+# -2862 -9010  5073 27249     0     0     0     0 
+# -4228 22224 -21529  9550     0     0     0     0 
+# -8814 -14778  3595 23162     0     0     0     0 
+# -27807  5534 20609 30131     0     0     0     0 
+# -19818 -23868 -19327  4895     0     0     0     0 
+# Dumping expected
+# -3759  8042  9287 14201 11305 -3497 -17255 -14921 
+# -26494 -20562 -2231  9920 10716 -3611 -6780  3693 
+#  4508 -13562 -10942 -28814 -10907  4508 21025 19021 
+# -2862 -9010  5073 27249 11126   482 10008  2512 
+# -4228 22224 -21529  9550 -11090 12617 -18011  3651 
+# -8814 -14778  3595 23162 -26400  2204 31452 -21967 
+# -27807  5534 20609 30131 -9645  3965  8146 -8044 
+# -19818 -23868 -19327  4895  9591 -22167 19563  8660 
+# Error! C Init was not conducted properly. Expected: 0, Got:                    x at address 0308
+# Error! C Init was not conducted properly. Expected: 0, Got:                    x at address 0318
+# Error! C Init was not conducted properly. Expected: 0, Got:                    x at address 0328
+# Error! C Init was not conducted properly. Expected: 0, Got:                    x at address 0338
+# Error! C Init was not conducted properly. Expected: 0, Got:                    x at address 0348
+# Error! C Init was not conducted properly. Expected: 0, Got:                    x at address 0358
+# Error! C Init was not conducted properly. Expected: 0, Got:                    x at address 0368
+# Error! C Init was not conducted properly. Expected: 0, Got:                    x at address 0378
+# Errors found:         360, dumping test case
+# 
+# A x B
+#  -33  -27    4  -40   34   73  -34 -103   104  -50   13   41  -23 -126   94   32 
+#   71    7   32 -103  -75   77   28  104    39  100  -99   31  122   84  -32   93 
+# -122   40   94  -98  -26  -37    2  -41   -54   64   96   62   25  -90   -8  -60 
+#   -9  -89  120  -20 -126   38   73  100    32  -23   43  -73 -121   92  -29  116 
+#   73   44 -113   92  -36   41   29   71   -48   -4  124    5   -4  -78  -46   94 
+#   44   60   46  -88  -93   53  -90  -90  -126  -76   99  -24   75  -52   15   30 
+#   14   20   83  -25   44  -83  -59  -90    79   -8   24  -26  -61  -89   33   40 
+#   86  105  -80   52   83  -58   88   93  -122 -111    9  -13  -28   33   80   96 
+# Dumping result
+# -6931  6147 10608  1619     0     0     0     0 
+# -13945 -15753 -1196  8328     0     0     0     0 
+# -8270 25821 -7944 10459     0     0     0     0 
+# -16700 -14378 10144  1032     0     0     0     0 
+#  8545 -19683 -9369 -12206     0     0     0     0 
+#  3272 15822 -13991 14713     0     0     0     0 
+# 11619 23781   108 13081     0     0     0     0 
+# 17953 -7067 -7222 -3665     0     0     0     0 
+# Dumping expected
+# -6931  6147 10608  1619 12702 -8971 -10941 -14309 
+# -13945 -15753 -1196  8328 13939 -17928 23030 -4581 
+# -8270 25821 -7944 10459 20249  3677 -13231 -24602 
+# -16700 -14378 10144  1032 -9130 -14327 18397 -16269 
+#  8545 -19683 -9369 -12206 -10806 13570 12598 29702 
+#  3272 15822 -13991 14713 30463 -3202  -697 -25372 
+# 11619 23781   108 13081  6936 -6689 -11679 -14926 
+# 17953 -7067 -7222 -3665 -10114  1747  9512 -23677 
+# Error! C Init was not conducted properly. Expected: 0, Got:                    x at address 0308
+# Error! C Init was not conducted properly. Expected: 0, Got:                    x at address 0318
+# Error! C Init was not conducted properly. Expected: 0, Got:                    x at address 0328
+# Error! C Init was not conducted properly. Expected: 0, Got:                    x at address 0338
+# Error! C Init was not conducted properly. Expected: 0, Got:                    x at address 0348
+# Error! C Init was not conducted properly. Expected: 0, Got:                    x at address 0358
+# Error! C Init was not conducted properly. Expected: 0, Got:                    x at address 0368
+# Error! C Init was not conducted properly. Expected: 0, Got:                    x at address 0378
+# Errors found:         400, dumping test case
+# 
+# A x B
+#  -99   30   74   -1 -126  -57   27   34    19  110  116 -125   17  -82   42  -54 
+#  -77   88 -100  -37    5  117  -70   47     5  -99  -89  105    6   50   72  -96 
+#   37   37 -114  -36   31  109  106   38   109 -126   26   -1 -102    2  -20  -99 
+#  -76 -116   10   45  -21  -29  -34 -106    43  -58   66  -24 -111  -33   76 -113 
+#  106   12  -71   62  -63   90  125  -75   -76  -26  126  -17   27   57  -86  -21 
+#  -49   12 -111   93  106   73   -4   49  -105  -22 -117  -59  -84 -111   37   -1 
+#   61  -48 -118   89   54   63   70   17    69 -122  -29  116  -86  125  -15  -92 
+#  -82    9    3 -105 -116  -21  -51  119     4   50 -112  -84   11 -104  102 -119 
+# Dumping result
+# 23852 -20190 -26094 21256     0     0     0     0 
+# -30821  5750 27437   797     0     0     0     0 
+# -19421  2623 -20518  2384     0     0     0     0 
+#  2872  -714 18343  3258     0     0     0     0 
+#   664 -3520  -219  3154     0     0     0     0 
+# -24772   590 -4057 -5425     0     0     0     0 
+# -13937 10688  9653 -12626     0     0     0     0 
+#  2277 11451 24363  1011     0     0     0     0 
+# Dumping expected
+# 23852 -20190 -26094 21256 -9502  8783  8236 -8574 
+# -30821  5750 27437   797 10370 -14605 12033 10416 
+# -19421  2623 -20518  2384  -542 -1258  7415 -5230 
+#  2872  -714 18343  3258 -4376  7763 -17893 25377 
+#   664 -3520  -219  3154 -18602  -436 10671 -8195 
+# -24772   590 -4057 -5425 -2149 -6330  6737 -5788 
+# -13937 10688  9653 -12626 -6761 -7508  6601 -6721 
+#  2277 11451 24363  1011 14336 -12387 11266  8120 
+# ARRRR!  Ye codes be blast! Aye, there be errors. Get debugging!
+# ** Note: $stop    : C:/Users/Zander/Downloads/School/ECE554/Minilab/ece554_miniproject5/tpuv1_integration_tb_v2.sv(230)
+#    Time: 13605 ps  Iteration: 1  Instance: /tpuv1_integration_tb
+# Break in Module tpuv1_integration_tb at C:/Users/Zander/Downloads/School/ECE554/Minilab/ece554_miniproject5/tpuv1_integration_tb_v2.sv line 230
+add wave -position insertpoint  \
+sim:/tpuv1_integration_tb/DUT/clk \
+sim:/tpuv1_integration_tb/DUT/rst_n \
+sim:/tpuv1_integration_tb/DUT/r_w \
+sim:/tpuv1_integration_tb/DUT/dataIn \
+sim:/tpuv1_integration_tb/DUT/dataOut \
+sim:/tpuv1_integration_tb/DUT/dataIn_temp \
+sim:/tpuv1_integration_tb/DUT/Cin \
+sim:/tpuv1_integration_tb/DUT/Cin_first
+add wave -position insertpoint  \
+sim:/tpuv1_integration_tb/DUT/Crow
+add wave -position insertpoint  \
+sim:/tpuv1_integration_tb/DUT/SYS_ARR/WrEn \
+sim:/tpuv1_integration_tb/DUT/SYS_ARR/en \
+sim:/tpuv1_integration_tb/DUT/SYS_ARR/A \
+sim:/tpuv1_integration_tb/DUT/SYS_ARR/B \
+sim:/tpuv1_integration_tb/DUT/SYS_ARR/Cin \
+sim:/tpuv1_integration_tb/DUT/SYS_ARR/Crow \
+sim:/tpuv1_integration_tb/DUT/SYS_ARR/Cout
+run
+run
+run
+restart
+run
+run
+run
+# Compile of tpuv1_integration_tb_v2.sv was successful.
+# Compile of afu.sv failed with 4 errors.
+# Compile of afu_tc.sv was successful.
+# Compile of fifo.sv was successful.
+# Compile of fifo_a.sv was successful.
+# Compile of memA.sv was successful.
+# Compile of memB.sv was successful.
+# Compile of systolic_array.sv was successful.
+# Compile of tpumac.sv was successful.
+# Compile of tpuv1.sv was successful.
+# 10 compiles, 1 failed with 4 errors.
+restart -f
+# Loading work.tpuv1_integration_tb_v2_sv_unit
+# Loading work.tpuv1_integration_tb
+# Loading work.tpuv1
+# Loading work.memA
+# Loading work.memB
+# Loading work.systolic_array
+# Loading work.fifo_a
+# Loading work.fifo
+# Loading work.tpumac
+# Warning in wave window restart: (vish-4014) No objects found matching '/tpuv1_integration_tb/DUT/Cin_first'. 
+run -all
+# No errors, testcase passed
+# 
+# No errors, testcase passed
+# 
+# No errors, testcase passed
+# 
+# No errors, testcase passed
+# 
+# No errors, testcase passed
+# 
+# No errors, testcase passed
+# 
+# No errors, testcase passed
+# 
+# No errors, testcase passed
+# 
+# No errors, testcase passed
+# 
+# No errors, testcase passed
+# 
+# YAHOO!!! All tests passed.
+# ** Note: $stop    : C:/Users/Zander/Downloads/School/ECE554/Minilab/ece554_miniproject5/tpuv1_integration_tb_v2.sv(230)
+#    Time: 10305 ps  Iteration: 1  Instance: /tpuv1_integration_tb
+# Break in Module tpuv1_integration_tb at C:/Users/Zander/Downloads/School/ECE554/Minilab/ece554_miniproject5/tpuv1_integration_tb_v2.sv line 230
