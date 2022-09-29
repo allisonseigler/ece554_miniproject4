@@ -23,6 +23,11 @@
 
 #include <cstdlib>
 #include <iostream>
+#include <cassert>
+#include <cstdint>
+#include <cstdio>
+#include <climits>
+#include <unistd.h>
 
 #include <opae/utils.h>
 
@@ -43,36 +48,238 @@ using namespace std;
 //=========================================================
 #define USER_REG_ADDR 0x0020
 
+#define PANIC(E_C, MSG) if(!(E_C)) { fprintf(stderr, MSG); exit(1);}
+
+typedef int8_t AB_TYPE;
+typedef int16_t C_TYPE;
+#define DIM 8
+#define DIM_FULL 16
+#define MAX_VAL _UI16_MAX
+#define DEBUG true
+
+AB_TYPE A_vals[DIM_FULL][DIM_FULL];
+AB_TYPE B_vals[DIM_FULL][DIM_FULL];
+C_TYPE output[DIM_FULL][DIM_FULL];
+C_TYPE output_reference[DIM_FULL][DIM_FULL];
+
+// Reflect Endian
+template<int width, class BT> BT ref_end(BT in)
+{
+	int bytes = width / 8;
+	BT src = in;
+	BT ret = 0;
+	char* wh = reinterpret_cast<char*>(&src);
+	char* dst = reinterpret_cast<char*>(&ret);
+	for(int itr = 0; itr < bytes; ++itr)
+	{
+		dst[itr] = wh[bytes - 1 - itr];
+	}
+
+	if(DEBUG) printf("ref_end: %lx -> %lx\n", src, ret);
+
+	return ret;
+}
+
+template<int base_addr> void send_row_X(uint16_t row, AB_TYPE* vals, AFU& afu)
+{
+	uint64_t real_addr = base_addr + row * 8;
+	uint64_t data_word = 0;
+
+	// Pack each of the values into single 64-bit word
+	for(int t = 0; t < DIM; ++t)
+	{
+		data_word |= ((static_cast<uint64_t>(vals[t]) & 0x0FF) << (t * sizeof(AB_TYPE)*8));
+	}
+
+
+	uint64_t data_word_cal = data_word;// ref_end<64, uint64_t>(data_word);
+
+	if(DEBUG) printf("data word val, addr: %lx | %lx\n", data_word_cal, real_addr);
+
+	// Do MMIO Write of Data Word
+	afu.write(real_addr, data_word_cal);
+}
+
+void send_row_A(uint16_t row, AB_TYPE * vals, AFU& afu) { send_row_X<0x100>(row, vals, afu); }
+void send_row_B(uint16_t row, AB_TYPE * vals, AFU& afu) { send_row_X<0x200>(row, vals, afu); }
+
+void send_row_C(uint16_t row, C_TYPE* vals, AFU& afu)
+{ // can easily genericize send_row_X further. TODO: do that
+
+	uint64_t wds[2] = {0};
+
+	uint64_t base_addr = 0x300;
+	uint64_t lw_addr = base_addr + row * 0x10;
+	uint64_t hw_addr = lw_addr + 0x8;
+
+	// Read the two words;
+	unsigned bitind = 0;
+
+
+	// Partition the words into their respective rows
+	for(ptrdiff_t ind = 0; ind < DIM; ++ind)
+	{
+		uint64_t base_mask = 0x0FFFF;
+
+		// TODO: unhardcode 16-bit
+		bitind = (ind / 4);
+		uint64_t shift_count = (ind * 16) % 64;
+
+		// Mask and store
+		wds[bitind] |= ((vals[ind] & (base_mask)) << shift_count);
+	}
+
+	if(DEBUG)
+		fprintf(stdout, "CWRITE: low word, high word, address %lx | %lx @%lx @%lx\n", wds[0], wds[1], lw_addr, hw_addr);
+
+	afu.write(lw_addr, wds[0]);
+	afu.write(hw_addr, wds[1]);
+}
+
+void unpack_from_C(uint16_t row, C_TYPE * vals, AFU& afu)
+{
+	uint64_t wds[2] = {0};
+
+	uint64_t base_addr = 0x300;
+	uint64_t lw_addr = base_addr + row * 0x10;
+	uint64_t hw_addr = lw_addr + 0x8;
+
+	// Read the two words;
+	wds[0] = afu.read(lw_addr);
+	wds[1] = afu.read(hw_addr);
+	unsigned bitind = 0;
+
+//	wds[0] = ref_end<64, uint64_t>(wds[0]);
+//	wds[1] = ref_end<64, uint64_t>(wds[1]);
+
+	if(DEBUG)
+		fprintf(stdout, "low word, high word, address %lx | %lx @%lx @%lx\n", wds[0], wds[1], lw_addr, hw_addr);
+
+	// Partition the words into their respective rows
+	for(ptrdiff_t ind = 0; ind < DIM; ++ind)
+	{
+		uint64_t base_mask = 0x0FFFF;
+
+		// TODO: unhardcode 16-bit
+		bitind = (ind / 4);
+		uint64_t shift_count = (ind * 16) % 64;
+
+		// Mask and store
+		vals[ind] = ((wds[bitind] & (base_mask << shift_count)) >> shift_count);
+	}
+}
 
 int main(int argc, char *argv[]) {
 
-  try {
-    // Create an AFU object to provide basic services for the FPGA. The 
-    // constructor searchers available FPGAs for one with an AFU with the
-    // the specified ID
-    AFU afu(AFU_ACCEL_UUID);
-    
-    // Test 100 different writes and reads to the user MMIO register.
-    unsigned errors = 0;
-    for (uint64_t i=0; i < 100; i++) {
-      afu.write(USER_REG_ADDR, i);
-      uint64_t result = afu.read(USER_REG_ADDR);
+  	try {
+		// Create an AFU object to provide basic services for the FPGA. The 
+		// constructor searchers available FPGAs for one with an AFU with the
+		// the specified ID
+		AFU afu(AFU_ACCEL_UUID);
 
-      if (result != i) {
-	cerr << "ERROR: Read from MMIO register has incorrect value " << result << " instead of " << i << endl;
-	errors ++;
-      }
-    }
+			// Seed random generator with "now"
+			timeval tv;
+		gettimeofday(&tv, nullptr);
+		srand(tv.tv_usec);
 
-    if (errors == 0) {
-      cout << "All MMIO tests succeeded." << endl;
-      return EXIT_SUCCESS;
-    }
-    else {
-      cout << "MMIO tests failed." << endl;
-      return EXIT_FAILURE;
-    }
-  }
+		fprintf(stdout, "FULL SYSTEM TEST\n---------------\n");
+		fprintf(stdout, "Populating A and B...\n");
+		// Generate A vals, B vals.
+		for(int y_ind = 0; y_ind < DIM_FULL; ++y_ind)
+		{
+			for(int x_ind = 0; x_ind < DIM_FULL; ++x_ind)
+			{
+				A_vals[y_ind][x_ind] = static_cast<int8_t>(rand() % 255);
+				B_vals[y_ind][x_ind] = static_cast<int8_t>(rand() % 255);
+			}
+		}
+
+
+		fprintf(stdout, "Calculating reference values of C...\n");
+		// Calculate reference C values.
+		for(int y_ind = 0; y_ind < DIM_FULL; ++y_ind)
+		{
+			for(int x_ind = 0; x_ind < DIM_FULL; ++x_ind)
+			{
+				// Calculate C
+				output_reference[y_ind][x_ind] = 0;
+
+				for(ptrdiff_t wh = 0; wh < DIM_FULL; ++wh)
+				{
+					output_reference[y_ind][x_ind] += A_vals[y_ind][wh] * B_vals[wh][x_ind];
+				}
+			}
+		}
+
+		for(int y_ind = 0; y_ind < DIM_FULL; ++y_ind) {
+			for(int x_ind = 0; x_ind < DIM_FULL; ++x_ind) {
+				output[y_ind][x_ind] = 0;
+			}
+		}
+
+		// Now try it with the AFU.
+		struct timespec start, end;
+		struct timespec start_compute, end_compute;
+
+		clock_gettime(CLOCK_REALTIME, &start);
+		for (int i = 0; i < DIM_FULL; i += 8) {
+			for(int j = 0; j < DIM_FULL; j += 8) {
+
+				for(int ii=0; ii < 8; ii++) {
+					fprintf(stdout, "Loading C Row: %d, Col: %d into AFU...", (i+ii), (j));
+					send_row_C(ii, &output[i+ii][j], afu);
+				}
+
+				for(int k=0; k < DIM_FULL; k += 8) {
+					for(int ii=0; ii < 8; ii++) {
+						fprintf(stdout, "Loading A Row: %d, Col: %d into AFU...", (i+ii), (k));
+						send_row_A(ii, &A_vals[i+ii][k], afu);
+						fprintf(stdout, "Loading B Row: %d, Col: %d into AFU...", (k+ii), (j));
+						send_row_B(ii, &B_vals[k+ii][j], afu);
+					}
+				}
+
+				fprintf(stdout, "Performing Calculation...\n");
+				clock_gettime(CLOCK_REALTIME, &start_compute);
+
+				afu.write(0x0400, 100);
+
+				clock_gettime(CLOCK_REALTIME, &end_compute);
+				fprintf(stdout, "Ending Calculation...\n");
+
+				fprintf(stdout, "Reading Output from C...\n");
+				for(int ii=0; ii < 8; ii++) {
+					unpack_from_C(ii, &output[ii+i][j], afu);
+				}
+				fprintf(stdout, "Finished reading Output from C...\n");
+			}
+		}
+		clock_gettime(CLOCK_REALTIME, &end);
+
+		// Compare.
+		fprintf(stdout, "Calculation finished. Testing values...\n");
+		for(int r = 0; r < DIM_FULL; ++r)
+		{
+			for(int c = 0; c < DIM_FULL; ++c)
+			{
+				fprintf(stdout, "row: %d, col: %d | got: %hx, expected %hx", r, c, output[r][c], output_reference[r][c]);
+				fflush(stdout);
+				assert(output[r][c] == output_reference[r][c]);
+				fprintf(stdout, " [OK]\n");
+			}
+		}
+
+		fprintf(stdout, "Total Time: %ld ns\n", (end.tv_nsec - start.tv_nsec));
+		fprintf(stdout, "Total Compute Time: %ld ns\n", (end_compute.tv_nsec - start_compute.tv_nsec));
+		fprintf(stdout, "Ops Rate: %ld\n", ((2*(DIM)*(DIM)*(DIM)) / (end.tv_nsec - start.tv_nsec)));
+		fprintf(stdout, "Compute Ops Rate: %ld\n", ((2*(DIM)*(DIM)*(DIM)) / (end_compute.tv_nsec - start_compute.tv_nsec)));
+	
+
+		fprintf(stdout, "All tests passed. No errors detected.\n");
+
+		return 0;  
+	}  
+  
   // Exception handling for all the runtime errors that can occur within 
   // the AFU wrapper class.
   catch (const fpga_result& e) {    
