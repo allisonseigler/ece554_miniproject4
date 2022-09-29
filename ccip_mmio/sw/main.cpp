@@ -237,21 +237,21 @@ int main(int argc, char *argv[]) {
 						fprintf(stdout, "Loading B Row: %d, Col: %d into AFU...", (k+ii), (j));
 						send_row_B(ii, &B_vals[k+ii][j], afu);
 					}
-				}
 
-				fprintf(stdout, "Performing Calculation...\n");
-				clock_gettime(CLOCK_REALTIME, &start_compute);
+          fprintf(stdout, "Performing Calculation...\n");
+          clock_gettime(CLOCK_REALTIME, &start_compute);
 
-				afu.write(0x0400, 100);
+          afu.write(0x0400, 100);
 
-				clock_gettime(CLOCK_REALTIME, &end_compute);
-				fprintf(stdout, "Ending Calculation...\n");
+          clock_gettime(CLOCK_REALTIME, &end_compute);
+          fprintf(stdout, "Ending Calculation...\n");
 
-				fprintf(stdout, "Reading Output from C...\n");
-				for(int ii=0; ii < 8; ii++) {
-					unpack_from_C(ii, &output[ii+i][j], afu);
-				}
-				fprintf(stdout, "Finished reading Output from C...\n");
+          fprintf(stdout, "Reading Output from C...\n");
+          for(int ii=0; ii < 8; ii++) {
+            unpack_from_C(ii, &output[ii+i][j], afu);
+          }
+          fprintf(stdout, "Finished reading Output from C...\n");
+        }
 			}
 		}
 		clock_gettime(CLOCK_REALTIME, &end);
