@@ -52,7 +52,8 @@ using namespace std;
 
 typedef int8_t AB_TYPE;
 typedef int16_t C_TYPE;
-#define DIM 16
+#define DIM 8
+#define DIM_FULL 16
 #define MAX_VAL _UI16_MAX
 #define DEBUG true
 
@@ -184,9 +185,9 @@ int main(int argc, char *argv[]) {
 		fprintf(stdout, "FULL SYSTEM TEST\n---------------\n");
 		fprintf(stdout, "Populating A and B...\n");
 		// Generate A vals, B vals.
-		for(int y_ind = 0; y_ind < DIM; ++y_ind)
+		for(int y_ind = 0; y_ind < DIM_FULL; ++y_ind)
 		{
-			for(int x_ind = 0; x_ind < DIM; ++x_ind)
+			for(int x_ind = 0; x_ind < DIM_FULL; ++x_ind)
 			{
 				A_vals[y_ind][x_ind] = static_cast<int8_t>(rand() % 255);
 				B_vals[y_ind][x_ind] = static_cast<int8_t>(rand() % 255);
@@ -196,9 +197,9 @@ int main(int argc, char *argv[]) {
 
 		fprintf(stdout, "Calculating reference values of C...\n");
 		// Calculate reference C values.
-		for(int y_ind = 0; y_ind < DIM; ++y_ind)
+		for(int y_ind = 0; y_ind < DIM_FULL; ++y_ind)
 		{
-			for(int x_ind = 0; x_ind < DIM; ++x_ind)
+			for(int x_ind = 0; x_ind < DIM_FULL; ++x_ind)
 			{
 				// Calculate C
 				output_reference[y_ind][x_ind] = 0;
@@ -210,26 +211,26 @@ int main(int argc, char *argv[]) {
 			}
 		}
 
-		for(int y_ind = 0; y_ind < DIM; ++y_ind) {
-			for(int x_ind = 0; x_ind < DIM; ++x_ind) {
+		for(int y_ind = 0; y_ind < DIM_FULL; ++y_ind) {
+			for(int x_ind = 0; x_ind < DIM_FULL; ++x_ind) {
 				output[y_ind][x_ind] = 0;
 			}
 		}
-		
+
 		// Now try it with the AFU.
 		struct timespec start, end;
 		struct timespec start_compute, end_compute;
 
 		clock_gettime(CLOCK_REALTIME, &start);
-		for (int i = 0; i < DIM; i += 8) {
-			for(int j = 0; j < DIM; j += 8) {
+		for (int i = 0; i < DIM_FULL; i += 8) {
+			for(int j = 0; j < DIM_FULL; j += 8) {
 
 				for(int ii=0; ii < 8; ii++) {
 					fprintf(stdout, "Loading C Row: %d, Col: %d into AFU...", (i+ii), (j));
 					send_row_C(ii, &output[i+ii][j], afu);
 				}
 
-				for(int k=0; k < DIM; k += 8) {
+				for(int k=0; k < DIM_FULL; k += 8) {
 					for(int ii=0; ii < 8; ii++) {
 						fprintf(stdout, "Loading A Row: %d, Col: %d into AFU...", (i+ii), (k));
 						send_row_A(ii, &A_vals[i+ii][k], afu);
