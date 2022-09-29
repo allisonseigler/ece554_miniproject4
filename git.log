@@ -1,0 +1,235 @@
+commit 0dd756b8b5cd4d121659f755516c4b0db01df051
+Author: Zander Huang <zthuang@wisc.edu>
+Date:   Wed Sep 28 22:31:29 2022 -0500
+
+    removed messy commented out code
+
+commit 6d373791279ba069ef7a18876b9b95ea1df271ec
+Author: u167178 <u167178@s005-n004.aidevcloud>
+Date:   Wed Sep 28 20:24:38 2022 -0700
+
+    added afu file
+
+commit e75f897d7b1a18fb5a24d39b9a056da45a12b6ec
+Author: Zander Huang <zthuang@wisc.edu>
+Date:   Wed Sep 28 21:39:52 2022 -0500
+
+    added the ccip_mmio module for synthesis
+
+commit 5fc365c8010dff2ef9296cc8321ac739af485129
+Author: Zander Huang <zthuang@wisc.edu>
+Date:   Wed Sep 28 21:39:28 2022 -0500
+
+    made a list of files needed and got testbench logs
+
+commit f31fff9f6910789f1e3902f78a59bbb266f711f4
+Author: Zander Huang <zthuang@wisc.edu>
+Date:   Wed Sep 28 21:21:38 2022 -0500
+
+    changed tpuv1 to only use Cin as Cin input
+
+commit 30159e232a6cffc3d40e9a8453efeb72d86af173
+Author: Zander Huang <zthuang@wisc.edu>
+Date:   Wed Sep 28 20:43:49 2022 -0500
+
+    enabled b when doing multiply
+
+commit cff198c0026ebf53e9f7c00ba9eeebf2ac6102e6
+Author: Allison Nicole Seigler <aseigler@tux-103.cae.wisc.edu>
+Date:   Wed Sep 28 19:29:55 2022 -0500
+
+    the Cin input to the systolic array has 2 x vals and i can't get rid of them
+
+commit 713f6fa8bba146af0340286a0b824def838da885
+Author: Allison Nicole Seigler <aseigler@tux-103.cae.wisc.edu>
+Date:   Wed Sep 28 17:56:27 2022 -0500
+
+    now it compiles but it doesn't work
+
+commit 63b1734072dd3c293411ed24d38a25127f405f24
+Author: Allison Nicole Seigler <aseigler@tux-103.cae.wisc.edu>
+Date:   Wed Sep 28 17:42:54 2022 -0500
+
+    allison does her best
+
+commit bd2ea43e34106e752fbc968222fa3e916aef4a96
+Author: Zander Huang <zthuang@wisc.edu>
+Date:   Tue Sep 27 19:37:08 2022 -0500
+
+    fixed compilation errors
+
+commit f8870d7c4123864779b28c1d0a1d6c79824a1cc1
+Author: Arnav Mehta <71764771+anmehta4@users.noreply.github.com>
+Date:   Tue Sep 27 18:54:31 2022 -0500
+
+    Update systolic_array.sv
+
+commit ec430143beb50454b089a9df9b8c51f79a7d9b4a
+Author: Allison Seigler <55610738+allisonseigler@users.noreply.github.com>
+Date:   Tue Sep 27 18:54:12 2022 -0500
+
+    using allison's tpumac now
+
+commit 529711aa69b64efddc74d1703decf53cde4f0400
+Author: Allison Seigler <55610738+allisonseigler@users.noreply.github.com>
+Date:   Tue Sep 27 18:52:06 2022 -0500
+
+    semicolon fun
+
+commit 680fc45c1bf971ee6e1802853ada3e4e235f3072
+Author: Allison Seigler <55610738+allisonseigler@users.noreply.github.com>
+Date:   Tue Sep 27 18:50:40 2022 -0500
+
+    fixed compiler error i think i hope
+
+commit 268eae7f5e73531c081c564c4f72903f10fc1b45
+Author: Allison Seigler <55610738+allisonseigler@users.noreply.github.com>
+Date:   Tue Sep 27 18:42:11 2022 -0500
+
+    working on compiler errors
+
+commit e709020c259a04b822380eb54bf79bf58670622e
+Merge: 15d827a 05b78ee
+Author: anmehta4 <anmehta4@wisc.edu>
+Date:   Tue Sep 27 18:40:23 2022 -0500
+
+    Merge branch 'main' of github.com:allisonseigler/ece554_miniproject5 into main
+
+commit 15d827ae719c667853363c70c3a8cc3aeae596c6
+Merge: 2424737 ca15907
+Author: anmehta4 <anmehta4@wisc.edu>
+Date:   Tue Sep 27 18:40:05 2022 -0500
+
+    Addeding test files
+
+commit 05b78eedc6bfe706d176bd8991e99ee7dc1fe637
+Author: Allison Seigler <55610738+allisonseigler@users.noreply.github.com>
+Date:   Tue Sep 27 18:30:12 2022 -0500
+
+    fixed counter
+
+commit 07f5794613239d12c624626ffaaa392d817a6971
+Merge: 108ff2c 18dc47c
+Author: Allison Seigler <55610738+allisonseigler@users.noreply.github.com>
+Date:   Tue Sep 27 18:27:14 2022 -0500
+
+    Merge pull request #1 from anmehta4/patch-1
+    
+    fixed indentation for typedef
+
+commit 18dc47c268cf710edb86f6521babdca80b95d72a
+Author: Arnav Mehta <71764771+anmehta4@users.noreply.github.com>
+Date:   Tue Sep 27 18:26:29 2022 -0500
+
+    fixed indentation for typedef
+
+commit 108ff2c83531d65b689a7cee0599914397cff3cd
+Author: Allison Seigler <55610738+allisonseigler@users.noreply.github.com>
+Date:   Tue Sep 27 18:25:59 2022 -0500
+
+    made it prettier
+
+commit 892f60ca5c97a5b30b8c6d5abb49054ababd2974
+Author: Allison Seigler <55610738+allisonseigler@users.noreply.github.com>
+Date:   Tue Sep 27 18:23:58 2022 -0500
+
+    finished state machine
+    
+    also all the commits are from me but we worked on this file together
+
+commit 535a689103226cf0d2355f220e54c06fd886d87d
+Author: Allison Seigler <55610738+allisonseigler@users.noreply.github.com>
+Date:   Tue Sep 27 18:04:04 2022 -0500
+
+    state machine read_c state
+
+commit cae3df02ae3132e7228a4164b756cc09c06a6ab4
+Author: Allison Seigler <55610738+allisonseigler@users.noreply.github.com>
+Date:   Tue Sep 27 17:53:10 2022 -0500
+
+    Crow  and dataOut logic
+
+commit 613ab7d279a08fb2ca9ed21ba30467de13172666
+Author: Allison Seigler <55610738+allisonseigler@users.noreply.github.com>
+Date:   Tue Sep 27 17:42:24 2022 -0500
+
+    Arow logic
+
+commit 47dfe314b4caba4dc1d92158318665362ede4800
+Author: Allison Seigler <55610738+allisonseigler@users.noreply.github.com>
+Date:   Tue Sep 27 17:35:26 2022 -0500
+
+    added lots of stuff
+
+commit ee9d3cf530b823e5f7aaeaabaf8ce521be70920e
+Author: Zander Huang <zthuang@wisc.edu>
+Date:   Tue Sep 27 17:04:10 2022 -0500
+
+    add systolic array files to project
+
+commit ca844c449e1259c6182cf87d9f5c92d9136bef70
+Merge: 8356be1 ca15907
+Author: Zander Huang <zthuang@wisc.edu>
+Date:   Tue Sep 27 16:52:15 2022 -0500
+
+    Merge branch 'main' of https://github.com/allisonseigler/ece554_miniproject5
+
+commit 8356be1cf9b0288a9a711d5677dfee5263981a1e
+Author: Zander Huang <zthuang@wisc.edu>
+Date:   Tue Sep 27 16:50:35 2022 -0500
+
+    added lab 4 files
+
+commit ca15907733179b7edb82291386a6e68ffe453c70
+Author: Allison Seigler <55610738+allisonseigler@users.noreply.github.com>
+Date:   Tue Sep 27 16:49:24 2022 -0500
+
+    Update tpuv1.sv
+
+commit 2424737fe99b51e6867bd1bded5c9f9c8099d381
+Author: anmehta4 <anmehta4@wisc.edu>
+Date:   Tue Sep 27 16:48:57 2022 -0500
+
+    changed some logic variables
+
+commit de329ee1ca40f3f4f5c93c945b6f3a2172c8b23a
+Author: Allison Seigler <55610738+allisonseigler@users.noreply.github.com>
+Date:   Tue Sep 27 15:50:14 2022 -0500
+
+    Update tpuv1.sv
+
+commit 308350b05832374c355a991feef313d173096835
+Author: Allison Seigler <55610738+allisonseigler@users.noreply.github.com>
+Date:   Tue Sep 27 15:29:35 2022 -0500
+
+    create tpuv1 and instantiate modules
+
+commit 68e895f93564a77a042727c246289e88aa9859c6
+Author: Allison Seigler <55610738+allisonseigler@users.noreply.github.com>
+Date:   Tue Sep 27 14:45:10 2022 -0500
+
+    Delete memB.sv
+
+commit 1f2d2ae7a551dcbb222f05ff5b91157b6fae435b
+Author: Allison Seigler <55610738+allisonseigler@users.noreply.github.com>
+Date:   Tue Sep 27 14:45:02 2022 -0500
+
+    Delete memA.sv,
+
+commit e5b4827fadd233e9bfa8c2655302eee7c73e297c
+Author: Allison Seigler <55610738+allisonseigler@users.noreply.github.com>
+Date:   Tue Sep 27 14:34:36 2022 -0500
+
+    Update README.md
+
+commit 19e0d1f5c57bd842a0da6b02a5f316d55ff00d97
+Author: Allison Seigler <allisonseigler@Allisons-MacBook-Pro.local>
+Date:   Thu Sep 22 13:23:03 2022 -0500
+
+    added memA and memB files
+
+commit eb66756192afd5d93b64434942dc84160428eb9c
+Author: Allison Seigler <allisonseigler@Allisons-MacBook-Pro.local>
+Date:   Thu Sep 22 13:11:14 2022 -0500
+
+    first commit
