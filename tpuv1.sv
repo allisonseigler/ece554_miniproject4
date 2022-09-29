@@ -40,9 +40,7 @@ module tpuv1
 	for (i=0; i<DIM; i+=1) begin
 		assign dataIn_temp[i] = dataIn[BITS_AB*(i+1)-1:BITS_AB*i];
 	end
-	for (i=0; i<DIM/2; i+=1) begin
-		assign Cin[i] = {dataIn_temp[2*i], dataIn_temp[2*i+1]};
-	end
+
 
 /*
 	for(i=0;i<DIM;i++) begin
@@ -64,6 +62,7 @@ module tpuv1
 	end
 */
   endgenerate
+
 
 
 
@@ -123,10 +122,17 @@ end // don't think this will work but don't wanna delete yet
 	incr_count = 1'b0;
 	rst_count = 1'b0;
 	Cin_first = Cin_first;
+	for (int i=0; i<DIM/2; i+=1) begin
+		Cin[i] = {dataIn_temp[2*i], dataIn_temp[2*i+1]};
+	end
 	
 
 	case (state)
 		READWRITE: begin
+			for (int i = 0; i < DIM/2; i+=1) begin
+				Cin_first[i] = 16'd0;
+				Cin[i] = 16'd0;
+			end
 			if (addr >= 16'h0100 && addr <= 16'h013f && r_w == 1'b1) begin
 				nxt_state = READWRITE;
 				WrEn_a = 1'b1;
@@ -137,7 +143,9 @@ end // don't think this will work but don't wanna delete yet
 			end
 			else if (addr >= 16'h0300 && addr <= 16'h037f && r_w == 1'b1) begin
 				nxt_state = WRITE_C;
-				Cin_first = Cin;
+				for (int i = 0; i < DIM/2; i+=1) begin
+					Cin_first[i] = {dataIn_temp[2*i], dataIn_temp[2*i+1]};
+				end
 			end
 			else if (addr == 16'h0400 && r_w == 1'b1) begin
 				nxt_state = MULTIPLY;
