@@ -57,10 +57,10 @@ typedef int16_t C_TYPE;
 #define MAX_VAL _UI16_MAX
 #define DEBUG true
 
-AB_TYPE A_vals[DIM][DIM];
-AB_TYPE B_vals[DIM][DIM];
-C_TYPE output[DIM][DIM];
-C_TYPE output_reference[DIM][DIM];
+AB_TYPE A_vals[DIM_FULL][DIM_FULL];
+AB_TYPE B_vals[DIM_FULL][DIM_FULL];
+C_TYPE output[DIM_FULL][DIM_FULL];
+C_TYPE output_reference[DIM_FULL][DIM_FULL];
 
 // Reflect Endian
 template<int width, class BT> BT ref_end(BT in)
