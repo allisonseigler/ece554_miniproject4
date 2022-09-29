@@ -272,8 +272,8 @@ int main(int argc, char *argv[]) {
 		}
 
 		fprintf(stdout, "Total Time: %ld ns\n", (end.tv_nsec - start.tv_nsec));
-		fprintf(stdout, "Total Compute Time: %ld ns\n", (end_compute.tv_nsec - start_compute.tv_nsec));
-		fprintf(stdout, "Ops Rate: %ld\n", ((2*(DIM_FULL)*(DIM_FULL)*(DIM_FULL)) /((end.tv_nsec - start.tv_nsec)/(1000000000))));
+		fprintf(stdout, "Total Compute Time: %ld ns\n", total_compute);
+		fprintf(stdout, "Ops Rate: %ld\n", ((2*(1000000000)*(DIM_FULL)*(DIM_FULL)*(DIM_FULL)) / ((end.tv_nsec - start.tv_nsec))));
 		fprintf(stdout, "Compute Ops Rate: %ld\n", ((2*(DIM_FULL)*(DIM_FULL)*(DIM_FULL)) / (total_compute)));
 	
 
