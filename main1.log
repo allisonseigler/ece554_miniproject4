@@ -1,0 +1,98 @@
+FULL SYSTEM TEST
+---------------
+Populating A and B...
+Calculating reference values of C...
+Loading A into AFU...
+data word val, addr: 23843fe673325f53 | 100
+data word val, addr: e9316cdfbfabd038 | 108
+data word val, addr: 6dc6e605e3400cc7 | 110
+data word val, addr: 3b64c18613e4fa51 | 118
+data word val, addr: f14b552ddac5a5f3 | 120
+data word val, addr: 3c97662b2a291900 | 128
+data word val, addr: 438f8d5c786cbfe7 | 130
+data word val, addr: 30cbc38bc408f4ec | 138
+Loading B into AFU...
+data word val, addr: 6323bf066a770863 | 200
+data word val, addr: 4e4fb4b17277c47 | 208
+data word val, addr: fe890a2327fef9c8 | 210
+data word val, addr: 2c2b377fc5bb7c3e | 218
+data word val, addr: 9c4273414b8ab3c6 | 220
+data word val, addr: 8c2110ec2f2ce4ed | 228
+data word val, addr: 8f7f274d191b2d62 | 230
+data word val, addr: 337f242bb31f16db | 238
+Performing Calculation...
+Reading Output from C...
+low word, high word, address 55423a45516180c | 6046d24cee0532b9 @300 @308
+low word, high word, address 2ac5490fd21720bd | cc243bd0dd97c171 @310 @318
+low word, high word, address d027eef5f4bfb31a | 1dceeb83119f00b5 @320 @328
+low word, high word, address e1115eef4bd46675 | 4e88433ecb5413ac @330 @338
+low word, high word, address 1ad6f6c2b7c9f3d0 | 974b518b1d74e2f1 @340 @348
+low word, high word, address 1d6f212f9f1c5f5 | 293f32c1c450f36 @350 @358
+low word, high word, address cb428750f9b5a87e | 587fd7b83ff74047 @360 @368
+low word, high word, address c49930a700f4e877 | 5801c846bf0abe86 @370 @378
+Calculation finished. Testing values...
+row: 0, col: 0 | got: 180c, expected 180c [OK]
+row: 0, col: 1 | got: 5516, expected 5516 [OK]
+row: 0, col: 2 | got: 23a4, expected 23a4 [OK]
+row: 0, col: 3 | got: 554, expected 554 [OK]
+row: 0, col: 4 | got: 32b9, expected 32b9 [OK]
+row: 0, col: 5 | got: ee05, expected ee05 [OK]
+row: 0, col: 6 | got: d24c, expected d24c [OK]
+row: 0, col: 7 | got: 6046, expected 6046 [OK]
+row: 1, col: 0 | got: 20bd, expected 20bd [OK]
+row: 1, col: 1 | got: d217, expected d217 [OK]
+row: 1, col: 2 | got: 490f, expected 490f [OK]
+row: 1, col: 3 | got: 2ac5, expected 2ac5 [OK]
+row: 1, col: 4 | got: c171, expected c171 [OK]
+row: 1, col: 5 | got: dd97, expected dd97 [OK]
+row: 1, col: 6 | got: 3bd0, expected 3bd0 [OK]
+row: 1, col: 7 | got: cc24, expected cc24 [OK]
+row: 2, col: 0 | got: b31a, expected b31a [OK]
+row: 2, col: 1 | got: f4bf, expected f4bf [OK]
+row: 2, col: 2 | got: eef5, expected eef5 [OK]
+row: 2, col: 3 | got: d027, expected d027 [OK]
+row: 2, col: 4 | got: b5, expected b5 [OK]
+row: 2, col: 5 | got: 119f, expected 119f [OK]
+row: 2, col: 6 | got: eb83, expected eb83 [OK]
+row: 2, col: 7 | got: 1dce, expected 1dce [OK]
+row: 3, col: 0 | got: 6675, expected 6675 [OK]
+row: 3, col: 1 | got: 4bd4, expected 4bd4 [OK]
+row: 3, col: 2 | got: 5eef, expected 5eef [OK]
+row: 3, col: 3 | got: e111, expected e111 [OK]
+row: 3, col: 4 | got: 13ac, expected 13ac [OK]
+row: 3, col: 5 | got: cb54, expected cb54 [OK]
+row: 3, col: 6 | got: 433e, expected 433e [OK]
+row: 3, col: 7 | got: 4e88, expected 4e88 [OK]
+row: 4, col: 0 | got: f3d0, expected f3d0 [OK]
+row: 4, col: 1 | got: b7c9, expected b7c9 [OK]
+row: 4, col: 2 | got: f6c2, expected f6c2 [OK]
+row: 4, col: 3 | got: 1ad6, expected 1ad6 [OK]
+row: 4, col: 4 | got: e2f1, expected e2f1 [OK]
+row: 4, col: 5 | got: 1d74, expected 1d74 [OK]
+row: 4, col: 6 | got: 518b, expected 518b [OK]
+row: 4, col: 7 | got: 974b, expected 974b [OK]
+row: 5, col: 0 | got: c5f5, expected c5f5 [OK]
+row: 5, col: 1 | got: f9f1, expected f9f1 [OK]
+row: 5, col: 2 | got: f212, expected f212 [OK]
+row: 5, col: 3 | got: 1d6, expected 1d6 [OK]
+row: 5, col: 4 | got: f36, expected f36 [OK]
+row: 5, col: 5 | got: 1c45, expected 1c45 [OK]
+row: 5, col: 6 | got: f32c, expected f32c [OK]
+row: 5, col: 7 | got: 293, expected 293 [OK]
+row: 6, col: 0 | got: a87e, expected a87e [OK]
+row: 6, col: 1 | got: f9b5, expected f9b5 [OK]
+row: 6, col: 2 | got: 8750, expected 8750 [OK]
+row: 6, col: 3 | got: cb42, expected cb42 [OK]
+row: 6, col: 4 | got: 4047, expected 4047 [OK]
+row: 6, col: 5 | got: 3ff7, expected 3ff7 [OK]
+row: 6, col: 6 | got: d7b8, expected d7b8 [OK]
+row: 6, col: 7 | got: 587f, expected 587f [OK]
+row: 7, col: 0 | got: e877, expected e877 [OK]
+row: 7, col: 1 | got: f4, expected f4 [OK]
+row: 7, col: 2 | got: 30a7, expected 30a7 [OK]
+row: 7, col: 3 | got: c499, expected c499 [OK]
+row: 7, col: 4 | got: be86, expected be86 [OK]
+row: 7, col: 5 | got: bf0a, expected bf0a [OK]
+row: 7, col: 6 | got: c846, expected c846 [OK]
+row: 7, col: 7 | got: 5801, expected 5801 [OK]
+All tests passed. No errors detected.
