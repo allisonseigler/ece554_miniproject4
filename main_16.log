@@ -1,0 +1,522 @@
+FULL SYSTEM TEST
+---------------
+Populating A and B...
+Calculating reference values of C...
+Loading C Row: 0, Col: 0 into AFU...CWRITE: low word, high word, address 0 | 0 @300 @308
+Loading C Row: 1, Col: 0 into AFU...CWRITE: low word, high word, address 0 | 0 @310 @318
+Loading C Row: 2, Col: 0 into AFU...CWRITE: low word, high word, address 0 | 0 @320 @328
+Loading C Row: 3, Col: 0 into AFU...CWRITE: low word, high word, address 0 | 0 @330 @338
+Loading C Row: 4, Col: 0 into AFU...CWRITE: low word, high word, address 0 | 0 @340 @348
+Loading C Row: 5, Col: 0 into AFU...CWRITE: low word, high word, address 0 | 0 @350 @358
+Loading C Row: 6, Col: 0 into AFU...CWRITE: low word, high word, address 0 | 0 @360 @368
+Loading C Row: 7, Col: 0 into AFU...CWRITE: low word, high word, address 0 | 0 @370 @378
+Loading A Row: 0, Col: 0 into AFU...data word val, addr: ef633dd71ef66022 | 100
+Loading B Row: 0, Col: 0 into AFU...data word val, addr: 2822410bcb488061 | 200
+Loading A Row: 1, Col: 0 into AFU...data word val, addr: 928d4386aeaadd6b | 108
+Loading B Row: 1, Col: 0 into AFU...data word val, addr: cbb26a6b82fbe261 | 208
+Loading A Row: 2, Col: 0 into AFU...data word val, addr: d48c05fa1713606a | 110
+Loading B Row: 2, Col: 0 into AFU...data word val, addr: 6d17095a9a101597 | 210
+Loading A Row: 3, Col: 0 into AFU...data word val, addr: ce75ed54d9e863ab | 118
+Loading B Row: 3, Col: 0 into AFU...data word val, addr: 9542e05ee47a3f59 | 218
+Loading A Row: 4, Col: 0 into AFU...data word val, addr: 9ed75413289e5bd9 | 120
+Loading B Row: 4, Col: 0 into AFU...data word val, addr: 7a238895f235c3a4 | 220
+Loading A Row: 5, Col: 0 into AFU...data word val, addr: 4fa291fcab753f99 | 128
+Loading B Row: 5, Col: 0 into AFU...data word val, addr: 8a305500086738c0 | 228
+Loading A Row: 6, Col: 0 into AFU...data word val, addr: 6e506b400f191511 | 130
+Loading B Row: 6, Col: 0 into AFU...data word val, addr: 7dbae2a096c007b1 | 230
+Loading A Row: 7, Col: 0 into AFU...data word val, addr: c1f9637354bf43a4 | 138
+Loading B Row: 7, Col: 0 into AFU...data word val, addr: 7f51c33f01523e7f | 238
+Performing Calculation...
+Ending Calculation...
+Reading Output from C...
+low word, high word, address a58107380004184a | d8e4d37c4c3418ea @300 @308
+low word, high word, address 5e43ed8ac14f2a0f | 4de0f4888b06fcac @310 @318
+low word, high word, address e11037c3bbaa5b9e | a7880a615d025efc @320 @328
+low word, high word, address b8dfae8ef240ab3e | 356ba272e7f6b3ae @330 @338
+low word, high word, address 102310c8ffa20a03 | 4a52df274279ffe9 @340 @348
+low word, high word, address f4fac3ec1a0804b1 | 62c2f110e3e25831 @350 @358
+low word, high word, address c5b1549e1fc4f57e | 4d7f2bb7edf5fa20 @360 @368
+low word, high word, address 23d35ff204bcf38 | 8b78ff73f265e319 @370 @378
+Finished reading Output from C...
+Loading A Row: 0, Col: 8 into AFU...data word val, addr: 1bba0e1f5a875be | 100
+Loading B Row: 8, Col: 0 into AFU...data word val, addr: a10efdf787451342 | 200
+Loading A Row: 1, Col: 8 into AFU...data word val, addr: 3913079fe8290ae0 | 108
+Loading B Row: 9, Col: 0 into AFU...data word val, addr: c3631b8b67d8371d | 208
+Loading A Row: 2, Col: 8 into AFU...data word val, addr: f8645be7545f7620 | 110
+Loading B Row: 10, Col: 0 into AFU...data word val, addr: a604d793ac334682 | 210
+Loading A Row: 3, Col: 8 into AFU...data word val, addr: 41ef088e8125dea1 | 118
+Loading B Row: 11, Col: 0 into AFU...data word val, addr: 2178e8ca38219b2 | 218
+Loading A Row: 4, Col: 8 into AFU...data word val, addr: 6522b2591ab0fbe7 | 120
+Loading B Row: 12, Col: 0 into AFU...data word val, addr: fa4d62ac8a458d70 | 220
+Loading A Row: 5, Col: 8 into AFU...data word val, addr: 7144ead31dc818ad | 128
+Loading B Row: 13, Col: 0 into AFU...data word val, addr: 43b9561873e4755c | 228
+Loading A Row: 6, Col: 8 into AFU...data word val, addr: 69aa8148ef385b06 | 130
+Loading B Row: 14, Col: 0 into AFU...data word val, addr: 9eb9b69a93b9511c | 230
+Loading A Row: 7, Col: 8 into AFU...data word val, addr: fe8f6a179a95cd57 | 138
+Loading B Row: 15, Col: 0 into AFU...data word val, addr: 66deaba9adbbad22 | 238
+Performing Calculation...
+Ending Calculation...
+Reading Output from C...
+low word, high word, address 14ddec0bc7030bb7 | f6c51f1053ce2c8a @300 @308
+low word, high word, address 81f6c7caec41f7cd | 5c4fc92d5560f830 @310 @318
+low word, high word, address d025ed4350a04886 | 4dbb075d2f35c507 @320 @328
+low word, high word, address 2465b3bcfe067b28 | 77f25cd8de7f0731 @330 @338
+low word, high word, address af76e9f587c03e7e | 75d8f67f1ffac4f8 @340 @348
+low word, high word, address f6f955550796ff97 | 9e0bce3c91a6260d @350 @358
+low word, high word, address 839b7863a9c6e15d | 4999915edcfb9b3c @360 @368
+low word, high word, address 628a8cc9f7955725 | e1d2eec6784c8338 @370 @378
+Finished reading Output from C...
+Loading C Row: 0, Col: 8 into AFU...CWRITE: low word, high word, address 0 | 0 @300 @308
+Loading C Row: 1, Col: 8 into AFU...CWRITE: low word, high word, address 0 | 0 @310 @318
+Loading C Row: 2, Col: 8 into AFU...CWRITE: low word, high word, address 0 | 0 @320 @328
+Loading C Row: 3, Col: 8 into AFU...CWRITE: low word, high word, address 0 | 0 @330 @338
+Loading C Row: 4, Col: 8 into AFU...CWRITE: low word, high word, address 0 | 0 @340 @348
+Loading C Row: 5, Col: 8 into AFU...CWRITE: low word, high word, address 0 | 0 @350 @358
+Loading C Row: 6, Col: 8 into AFU...CWRITE: low word, high word, address 0 | 0 @360 @368
+Loading C Row: 7, Col: 8 into AFU...CWRITE: low word, high word, address 0 | 0 @370 @378
+Loading A Row: 0, Col: 0 into AFU...data word val, addr: ef633dd71ef66022 | 100
+Loading B Row: 0, Col: 8 into AFU...data word val, addr: 5d0a7c9f5fa1be2d | 200
+Loading A Row: 1, Col: 0 into AFU...data word val, addr: 928d4386aeaadd6b | 108
+Loading B Row: 1, Col: 8 into AFU...data word val, addr: fd08db090b008908 | 208
+Loading A Row: 2, Col: 0 into AFU...data word val, addr: d48c05fa1713606a | 110
+Loading B Row: 2, Col: 8 into AFU...data word val, addr: ce147a5b7fdec8df | 210
+Loading A Row: 3, Col: 0 into AFU...data word val, addr: ce75ed54d9e863ab | 118
+Loading B Row: 3, Col: 8 into AFU...data word val, addr: 1c80f25c8c330245 | 218
+Loading A Row: 4, Col: 0 into AFU...data word val, addr: 9ed75413289e5bd9 | 120
+Loading B Row: 4, Col: 8 into AFU...data word val, addr: fbf349223f7d0d7d | 220
+Loading A Row: 5, Col: 0 into AFU...data word val, addr: 4fa291fcab753f99 | 128
+Loading B Row: 5, Col: 8 into AFU...data word val, addr: 5dd0f54fa132dd4b | 228
+Loading A Row: 6, Col: 0 into AFU...data word val, addr: 6e506b400f191511 | 130
+Loading B Row: 6, Col: 8 into AFU...data word val, addr: bcf20c5a8bf84e06 | 230
+Loading A Row: 7, Col: 0 into AFU...data word val, addr: c1f9637354bf43a4 | 138
+Loading B Row: 7, Col: 8 into AFU...data word val, addr: b354c21c5e3d8f1d | 238
+Performing Calculation...
+Ending Calculation...
+Reading Output from C...
+low word, high word, address a9f9eb70e8471099 | 123de033f6a22c0b @300 @308
+low word, high word, address f5fa8e470504cf9a | 8977013203f86a33 @310 @318
+low word, high word, address 4bfed1e9a3291037 | 522bf466308fbd62 @320 @328
+low word, high word, address be5e30b22d6c0d43 | c7cdf9e4e9943619 @330 @338
+low word, high word, address 86f4271209c0293a | 4ecbb709c6b000d4 @340 @348
+low word, high word, address ad3803e1b279ae25 | 92a865aaed80f918 @350 @358
+low word, high word, address f8b04538c8f25166 | f1f9042e070e5a40 @360 @368
+low word, high word, address 7e0f7834196e5ecc | 2a34a2bbd1a750c5 @370 @378
+Finished reading Output from C...
+Loading A Row: 0, Col: 8 into AFU...data word val, addr: 1bba0e1f5a875be | 100
+Loading B Row: 8, Col: 8 into AFU...data word val, addr: 31e077899f4c41ca | 200
+Loading A Row: 1, Col: 8 into AFU...data word val, addr: 3913079fe8290ae0 | 108
+Loading B Row: 9, Col: 8 into AFU...data word val, addr: 3b458bb7a2a3b66d | 208
+Loading A Row: 2, Col: 8 into AFU...data word val, addr: f8645be7545f7620 | 110
+Loading B Row: 10, Col: 8 into AFU...data word val, addr: 8fbb8466f1b32ba0 | 210
+Loading A Row: 3, Col: 8 into AFU...data word val, addr: 41ef088e8125dea1 | 118
+Loading B Row: 11, Col: 8 into AFU...data word val, addr: e5740c6cb0797b91 | 218
+Loading A Row: 4, Col: 8 into AFU...data word val, addr: 6522b2591ab0fbe7 | 120
+Loading B Row: 12, Col: 8 into AFU...data word val, addr: 25907889e8e42490 | 220
+Loading A Row: 5, Col: 8 into AFU...data word val, addr: 7144ead31dc818ad | 128
+Loading B Row: 13, Col: 8 into AFU...data word val, addr: 45d2c3b1fcbb53c7 | 228
+Loading A Row: 6, Col: 8 into AFU...data word val, addr: 69aa8148ef385b06 | 130
+Loading B Row: 14, Col: 8 into AFU...data word val, addr: a4102321e3ae2e62 | 230
+Loading A Row: 7, Col: 8 into AFU...data word val, addr: fe8f6a179a95cd57 | 138
+Loading B Row: 15, Col: 8 into AFU...data word val, addr: a656d6694a405e3c | 238
+Performing Calculation...
+Ending Calculation...
+Reading Output from C...
+low word, high word, address ad20f63a721e7edd | 42aa358ecb562535 @300 @308
+low word, high word, address 1ad67a5b02541327 | 4f142f7ba5a6c131 @310 @318
+low word, high word, address e80183d9ea830ebe | 347c1acfcd02cf4c @320 @328
+low word, high word, address 33a5f9b2efb374d6 | 8bc8fe4b70c0901c @330 @338
+low word, high word, address a10b5f7722534e37 | 318ae54a15b4157a @340 @348
+low word, high word, address db991264c33d1f66 | 515dd498bf576193 @350 @358
+low word, high word, address fa5c5d37a9745db7 | d3561a61e75c725b @360 @368
+low word, high word, address 9e6099240bd83db1 | b24c53e322daa66b @370 @378
+Finished reading Output from C...
+Loading C Row: 8, Col: 0 into AFU...CWRITE: low word, high word, address 0 | 0 @300 @308
+Loading C Row: 9, Col: 0 into AFU...CWRITE: low word, high word, address 0 | 0 @310 @318
+Loading C Row: 10, Col: 0 into AFU...CWRITE: low word, high word, address 0 | 0 @320 @328
+Loading C Row: 11, Col: 0 into AFU...CWRITE: low word, high word, address 0 | 0 @330 @338
+Loading C Row: 12, Col: 0 into AFU...CWRITE: low word, high word, address 0 | 0 @340 @348
+Loading C Row: 13, Col: 0 into AFU...CWRITE: low word, high word, address 0 | 0 @350 @358
+Loading C Row: 14, Col: 0 into AFU...CWRITE: low word, high word, address 0 | 0 @360 @368
+Loading C Row: 15, Col: 0 into AFU...CWRITE: low word, high word, address 0 | 0 @370 @378
+Loading A Row: 8, Col: 0 into AFU...data word val, addr: 7d494c84149471d3 | 100
+Loading B Row: 0, Col: 0 into AFU...data word val, addr: 2822410bcb488061 | 200
+Loading A Row: 9, Col: 0 into AFU...data word val, addr: bc9966d0bf634523 | 108
+Loading B Row: 1, Col: 0 into AFU...data word val, addr: cbb26a6b82fbe261 | 208
+Loading A Row: 10, Col: 0 into AFU...data word val, addr: 1bf7473e2d5b7363 | 110
+Loading B Row: 2, Col: 0 into AFU...data word val, addr: 6d17095a9a101597 | 210
+Loading A Row: 11, Col: 0 into AFU...data word val, addr: b410fa17c565553e | 118
+Loading B Row: 3, Col: 0 into AFU...data word val, addr: 9542e05ee47a3f59 | 218
+Loading A Row: 12, Col: 0 into AFU...data word val, addr: 64c39851b1f37e28 | 120
+Loading B Row: 4, Col: 0 into AFU...data word val, addr: 7a238895f235c3a4 | 220
+Loading A Row: 13, Col: 0 into AFU...data word val, addr: d065d59100a13302 | 128
+Loading B Row: 5, Col: 0 into AFU...data word val, addr: 8a305500086738c0 | 228
+Loading A Row: 14, Col: 0 into AFU...data word val, addr: f95469d1c4013a30 | 130
+Loading B Row: 6, Col: 0 into AFU...data word val, addr: 7dbae2a096c007b1 | 230
+Loading A Row: 15, Col: 0 into AFU...data word val, addr: c964e356c0dbf5ac | 138
+Loading B Row: 7, Col: 0 into AFU...data word val, addr: 7f51c33f01523e7f | 238
+Performing Calculation...
+Ending Calculation...
+Reading Output from C...
+low word, high word, address e5f60e9d53c38e10 | aec3e3ef4a1645e3 @300 @308
+low word, high word, address e6a712c7ed01de01 | a296faf985b4533c @310 @318
+low word, high word, address 8c626908da9d238c | 116b1eae3b7654f1 @320 @328
+low word, high word, address 9f2cdffab80bc85b | 2b97cdcc415311b8 @330 @338
+low word, high word, address d97ef889b53a6a17 | 7203f148ee91226f @340 @348
+low word, high word, address e70ea8b9f96936b5 | c5bba62637a4f0b6 @350 @358
+low word, high word, address c2b9f91cf54aec24 | f3bed9675c75f70c @360 @368
+low word, high word, address fd51a34cf3158321 | 4c0bbdf2bc437c4e @370 @378
+Finished reading Output from C...
+Loading A Row: 8, Col: 8 into AFU...data word val, addr: 2cdde1689f87b0aa | 100
+Loading B Row: 8, Col: 0 into AFU...data word val, addr: a10efdf787451342 | 200
+Loading A Row: 9, Col: 8 into AFU...data word val, addr: bd98992ed539842f | 108
+Loading B Row: 9, Col: 0 into AFU...data word val, addr: c3631b8b67d8371d | 208
+Loading A Row: 10, Col: 8 into AFU...data word val, addr: bfac7eea4d44dcf0 | 110
+Loading B Row: 10, Col: 0 into AFU...data word val, addr: a604d793ac334682 | 210
+Loading A Row: 11, Col: 8 into AFU...data word val, addr: 1ba735dfedc4ac37 | 118
+Loading B Row: 11, Col: 0 into AFU...data word val, addr: 2178e8ca38219b2 | 218
+Loading A Row: 12, Col: 8 into AFU...data word val, addr: 5e7df5d0d489f65e | 120
+Loading B Row: 12, Col: 0 into AFU...data word val, addr: fa4d62ac8a458d70 | 220
+Loading A Row: 13, Col: 8 into AFU...data word val, addr: e843f4453c2c674a | 128
+Loading B Row: 13, Col: 0 into AFU...data word val, addr: 43b9561873e4755c | 228
+Loading A Row: 14, Col: 8 into AFU...data word val, addr: e7f4a7602c1e7182 | 130
+Loading B Row: 14, Col: 0 into AFU...data word val, addr: 9eb9b69a93b9511c | 230
+Loading A Row: 15, Col: 8 into AFU...data word val, addr: faf96e62426a94c0 | 138
+Loading B Row: 15, Col: 0 into AFU...data word val, addr: 66deaba9adbbad22 | 238
+Performing Calculation...
+Ending Calculation...
+Reading Output from C...
+low word, high word, address fc2338d7bb68ec50 | 1fe6e16e9a23a6e8 @300 @308
+low word, high word, address 99ff99e89251a7f5 | 8b661ac3a569aced @310 @318
+low word, high word, address cec2671929c5f440 | 30610e3b5a7170b4 @320 @328
+low word, high word, address c221fc0a99f3eecd | 7b9daa265fd3826a @330 @338
+low word, high word, address 9d8ec9a5aed4ca5f | 6edab234b9a62746 @340 @348
+low word, high word, address 8f589f9b1f6c4b88 | 5ac2e0cb2adb66cf @350 @358
+low word, high word, address cae6e37dc139c1ab | de763ed764138c8e @360 @368
+low word, high word, address be86a97f008a6ef5 | 738f99f9d1bd53dc @370 @378
+Finished reading Output from C...
+Loading C Row: 8, Col: 8 into AFU...CWRITE: low word, high word, address 0 | 0 @300 @308
+Loading C Row: 9, Col: 8 into AFU...CWRITE: low word, high word, address 0 | 0 @310 @318
+Loading C Row: 10, Col: 8 into AFU...CWRITE: low word, high word, address 0 | 0 @320 @328
+Loading C Row: 11, Col: 8 into AFU...CWRITE: low word, high word, address 0 | 0 @330 @338
+Loading C Row: 12, Col: 8 into AFU...CWRITE: low word, high word, address 0 | 0 @340 @348
+Loading C Row: 13, Col: 8 into AFU...CWRITE: low word, high word, address 0 | 0 @350 @358
+Loading C Row: 14, Col: 8 into AFU...CWRITE: low word, high word, address 0 | 0 @360 @368
+Loading C Row: 15, Col: 8 into AFU...CWRITE: low word, high word, address 0 | 0 @370 @378
+Loading A Row: 8, Col: 0 into AFU...data word val, addr: 7d494c84149471d3 | 100
+Loading B Row: 0, Col: 8 into AFU...data word val, addr: 5d0a7c9f5fa1be2d | 200
+Loading A Row: 9, Col: 0 into AFU...data word val, addr: bc9966d0bf634523 | 108
+Loading B Row: 1, Col: 8 into AFU...data word val, addr: fd08db090b008908 | 208
+Loading A Row: 10, Col: 0 into AFU...data word val, addr: 1bf7473e2d5b7363 | 110
+Loading B Row: 2, Col: 8 into AFU...data word val, addr: ce147a5b7fdec8df | 210
+Loading A Row: 11, Col: 0 into AFU...data word val, addr: b410fa17c565553e | 118
+Loading B Row: 3, Col: 8 into AFU...data word val, addr: 1c80f25c8c330245 | 218
+Loading A Row: 12, Col: 0 into AFU...data word val, addr: 64c39851b1f37e28 | 120
+Loading B Row: 4, Col: 8 into AFU...data word val, addr: fbf349223f7d0d7d | 220
+Loading A Row: 13, Col: 0 into AFU...data word val, addr: d065d59100a13302 | 128
+Loading B Row: 5, Col: 8 into AFU...data word val, addr: 5dd0f54fa132dd4b | 228
+Loading A Row: 14, Col: 0 into AFU...data word val, addr: f95469d1c4013a30 | 130
+Loading B Row: 6, Col: 8 into AFU...data word val, addr: bcf20c5a8bf84e06 | 230
+Loading A Row: 15, Col: 0 into AFU...data word val, addr: c964e356c0dbf5ac | 138
+Loading B Row: 7, Col: 8 into AFU...data word val, addr: b354c21c5e3d8f1d | 238
+Performing Calculation...
+Ending Calculation...
+Reading Output from C...
+low word, high word, address 875510d4bd3cf886 | eaa70c6863d52424 @300 @308
+low word, high word, address 42f6c86aaefde65b | 47440a643349ee73 @310 @318
+low word, high word, address 455f0aff883f4b51 | 289ef0f64fe82cfc @320 @328
+low word, high word, address 4c2bc746da5cf1df | b54109d5f14f8b6 @330 @338
+low word, high word, address acbb101e90f30a55 | d1b75f85ffc7b46b @340 @348
+low word, high word, address 88a9beaf30c3c853 | f8d7f2adbee1e183 @350 @358
+low word, high word, address d47fdb5ee3eb02f0 | 1cdb099306581192 @360 @368
+low word, high word, address c9072b6f61710205 | cb9b030af68c1ae7 @370 @378
+Finished reading Output from C...
+Loading A Row: 8, Col: 8 into AFU...data word val, addr: 2cdde1689f87b0aa | 100
+Loading B Row: 8, Col: 8 into AFU...data word val, addr: 31e077899f4c41ca | 200
+Loading A Row: 9, Col: 8 into AFU...data word val, addr: bd98992ed539842f | 108
+Loading B Row: 9, Col: 8 into AFU...data word val, addr: 3b458bb7a2a3b66d | 208
+Loading A Row: 10, Col: 8 into AFU...data word val, addr: bfac7eea4d44dcf0 | 110
+Loading B Row: 10, Col: 8 into AFU...data word val, addr: 8fbb8466f1b32ba0 | 210
+Loading A Row: 11, Col: 8 into AFU...data word val, addr: 1ba735dfedc4ac37 | 118
+Loading B Row: 11, Col: 8 into AFU...data word val, addr: e5740c6cb0797b91 | 218
+Loading A Row: 12, Col: 8 into AFU...data word val, addr: 5e7df5d0d489f65e | 120
+Loading B Row: 12, Col: 8 into AFU...data word val, addr: 25907889e8e42490 | 220
+Loading A Row: 13, Col: 8 into AFU...data word val, addr: e843f4453c2c674a | 128
+Loading B Row: 13, Col: 8 into AFU...data word val, addr: 45d2c3b1fcbb53c7 | 228
+Loading A Row: 14, Col: 8 into AFU...data word val, addr: e7f4a7602c1e7182 | 130
+Loading B Row: 14, Col: 8 into AFU...data word val, addr: a4102321e3ae2e62 | 230
+Loading A Row: 15, Col: 8 into AFU...data word val, addr: faf96e62426a94c0 | 138
+Loading B Row: 15, Col: 8 into AFU...data word val, addr: a656d6694a405e3c | 238
+Performing Calculation...
+Ending Calculation...
+Reading Output from C...
+low word, high word, address f21d1e198a09165a | b2edaebc29df08e @300 @308
+low word, high word, address 5e7e053d8d777035 | 46e0a19f8f0fe20c @310 @318
+low word, high word, address 336d0e5ebdcec2a8 | 4af1d1b81270381f @320 @328
+low word, high word, address 73c717c4f3ddc823 | 3efe03158e83d5c3 @330 @338
+low word, high word, address b3313654b13d8f48 | c2b39b94556999f9 @340 @348
+low word, high word, address 1caa9e965309b290 | fc17f49cd001af02 @350 @358
+low word, high word, address bdc3a3c4a2c00eaa | fe3207ad0542d79 @360 @368
+low word, high word, address e240175bcfe955b7 | a127ae2ceda94aaa @370 @378
+Finished reading Output from C...
+Calculation finished. Testing values...
+row: 0, col: 0 | got: bb7, expected bb7 [OK]
+row: 0, col: 1 | got: c703, expected c703 [OK]
+row: 0, col: 2 | got: ec0b, expected ec0b [OK]
+row: 0, col: 3 | got: 14dd, expected 14dd [OK]
+row: 0, col: 4 | got: 2c8a, expected 2c8a [OK]
+row: 0, col: 5 | got: 53ce, expected 53ce [OK]
+row: 0, col: 6 | got: 1f10, expected 1f10 [OK]
+row: 0, col: 7 | got: f6c5, expected f6c5 [OK]
+row: 0, col: 8 | got: 7edd, expected 7edd [OK]
+row: 0, col: 9 | got: 721e, expected 721e [OK]
+row: 0, col: 10 | got: f63a, expected f63a [OK]
+row: 0, col: 11 | got: ad20, expected ad20 [OK]
+row: 0, col: 12 | got: 2535, expected 2535 [OK]
+row: 0, col: 13 | got: cb56, expected cb56 [OK]
+row: 0, col: 14 | got: 358e, expected 358e [OK]
+row: 0, col: 15 | got: 42aa, expected 42aa [OK]
+row: 1, col: 0 | got: f7cd, expected f7cd [OK]
+row: 1, col: 1 | got: ec41, expected ec41 [OK]
+row: 1, col: 2 | got: c7ca, expected c7ca [OK]
+row: 1, col: 3 | got: 81f6, expected 81f6 [OK]
+row: 1, col: 4 | got: f830, expected f830 [OK]
+row: 1, col: 5 | got: 5560, expected 5560 [OK]
+row: 1, col: 6 | got: c92d, expected c92d [OK]
+row: 1, col: 7 | got: 5c4f, expected 5c4f [OK]
+row: 1, col: 8 | got: 1327, expected 1327 [OK]
+row: 1, col: 9 | got: 254, expected 254 [OK]
+row: 1, col: 10 | got: 7a5b, expected 7a5b [OK]
+row: 1, col: 11 | got: 1ad6, expected 1ad6 [OK]
+row: 1, col: 12 | got: c131, expected c131 [OK]
+row: 1, col: 13 | got: a5a6, expected a5a6 [OK]
+row: 1, col: 14 | got: 2f7b, expected 2f7b [OK]
+row: 1, col: 15 | got: 4f14, expected 4f14 [OK]
+row: 2, col: 0 | got: 4886, expected 4886 [OK]
+row: 2, col: 1 | got: 50a0, expected 50a0 [OK]
+row: 2, col: 2 | got: ed43, expected ed43 [OK]
+row: 2, col: 3 | got: d025, expected d025 [OK]
+row: 2, col: 4 | got: c507, expected c507 [OK]
+row: 2, col: 5 | got: 2f35, expected 2f35 [OK]
+row: 2, col: 6 | got: 75d, expected 75d [OK]
+row: 2, col: 7 | got: 4dbb, expected 4dbb [OK]
+row: 2, col: 8 | got: ebe, expected ebe [OK]
+row: 2, col: 9 | got: ea83, expected ea83 [OK]
+row: 2, col: 10 | got: 83d9, expected 83d9 [OK]
+row: 2, col: 11 | got: e801, expected e801 [OK]
+row: 2, col: 12 | got: cf4c, expected cf4c [OK]
+row: 2, col: 13 | got: cd02, expected cd02 [OK]
+row: 2, col: 14 | got: 1acf, expected 1acf [OK]
+row: 2, col: 15 | got: 347c, expected 347c [OK]
+row: 3, col: 0 | got: 7b28, expected 7b28 [OK]
+row: 3, col: 1 | got: fe06, expected fe06 [OK]
+row: 3, col: 2 | got: b3bc, expected b3bc [OK]
+row: 3, col: 3 | got: 2465, expected 2465 [OK]
+row: 3, col: 4 | got: 731, expected 731 [OK]
+row: 3, col: 5 | got: de7f, expected de7f [OK]
+row: 3, col: 6 | got: 5cd8, expected 5cd8 [OK]
+row: 3, col: 7 | got: 77f2, expected 77f2 [OK]
+row: 3, col: 8 | got: 74d6, expected 74d6 [OK]
+row: 3, col: 9 | got: efb3, expected efb3 [OK]
+row: 3, col: 10 | got: f9b2, expected f9b2 [OK]
+row: 3, col: 11 | got: 33a5, expected 33a5 [OK]
+row: 3, col: 12 | got: 901c, expected 901c [OK]
+row: 3, col: 13 | got: 70c0, expected 70c0 [OK]
+row: 3, col: 14 | got: fe4b, expected fe4b [OK]
+row: 3, col: 15 | got: 8bc8, expected 8bc8 [OK]
+row: 4, col: 0 | got: 3e7e, expected 3e7e [OK]
+row: 4, col: 1 | got: 87c0, expected 87c0 [OK]
+row: 4, col: 2 | got: e9f5, expected e9f5 [OK]
+row: 4, col: 3 | got: af76, expected af76 [OK]
+row: 4, col: 4 | got: c4f8, expected c4f8 [OK]
+row: 4, col: 5 | got: 1ffa, expected 1ffa [OK]
+row: 4, col: 6 | got: f67f, expected f67f [OK]
+row: 4, col: 7 | got: 75d8, expected 75d8 [OK]
+row: 4, col: 8 | got: 4e37, expected 4e37 [OK]
+row: 4, col: 9 | got: 2253, expected 2253 [OK]
+row: 4, col: 10 | got: 5f77, expected 5f77 [OK]
+row: 4, col: 11 | got: a10b, expected a10b [OK]
+row: 4, col: 12 | got: 157a, expected 157a [OK]
+row: 4, col: 13 | got: 15b4, expected 15b4 [OK]
+row: 4, col: 14 | got: e54a, expected e54a [OK]
+row: 4, col: 15 | got: 318a, expected 318a [OK]
+row: 5, col: 0 | got: ff97, expected ff97 [OK]
+row: 5, col: 1 | got: 796, expected 796 [OK]
+row: 5, col: 2 | got: 5555, expected 5555 [OK]
+row: 5, col: 3 | got: f6f9, expected f6f9 [OK]
+row: 5, col: 4 | got: 260d, expected 260d [OK]
+row: 5, col: 5 | got: 91a6, expected 91a6 [OK]
+row: 5, col: 6 | got: ce3c, expected ce3c [OK]
+row: 5, col: 7 | got: 9e0b, expected 9e0b [OK]
+row: 5, col: 8 | got: 1f66, expected 1f66 [OK]
+row: 5, col: 9 | got: c33d, expected c33d [OK]
+row: 5, col: 10 | got: 1264, expected 1264 [OK]
+row: 5, col: 11 | got: db99, expected db99 [OK]
+row: 5, col: 12 | got: 6193, expected 6193 [OK]
+row: 5, col: 13 | got: bf57, expected bf57 [OK]
+row: 5, col: 14 | got: d498, expected d498 [OK]
+row: 5, col: 15 | got: 515d, expected 515d [OK]
+row: 6, col: 0 | got: e15d, expected e15d [OK]
+row: 6, col: 1 | got: a9c6, expected a9c6 [OK]
+row: 6, col: 2 | got: 7863, expected 7863 [OK]
+row: 6, col: 3 | got: 839b, expected 839b [OK]
+row: 6, col: 4 | got: 9b3c, expected 9b3c [OK]
+row: 6, col: 5 | got: dcfb, expected dcfb [OK]
+row: 6, col: 6 | got: 915e, expected 915e [OK]
+row: 6, col: 7 | got: 4999, expected 4999 [OK]
+row: 6, col: 8 | got: 5db7, expected 5db7 [OK]
+row: 6, col: 9 | got: a974, expected a974 [OK]
+row: 6, col: 10 | got: 5d37, expected 5d37 [OK]
+row: 6, col: 11 | got: fa5c, expected fa5c [OK]
+row: 6, col: 12 | got: 725b, expected 725b [OK]
+row: 6, col: 13 | got: e75c, expected e75c [OK]
+row: 6, col: 14 | got: 1a61, expected 1a61 [OK]
+row: 6, col: 15 | got: d356, expected d356 [OK]
+row: 7, col: 0 | got: 5725, expected 5725 [OK]
+row: 7, col: 1 | got: f795, expected f795 [OK]
+row: 7, col: 2 | got: 8cc9, expected 8cc9 [OK]
+row: 7, col: 3 | got: 628a, expected 628a [OK]
+row: 7, col: 4 | got: 8338, expected 8338 [OK]
+row: 7, col: 5 | got: 784c, expected 784c [OK]
+row: 7, col: 6 | got: eec6, expected eec6 [OK]
+row: 7, col: 7 | got: e1d2, expected e1d2 [OK]
+row: 7, col: 8 | got: 3db1, expected 3db1 [OK]
+row: 7, col: 9 | got: bd8, expected bd8 [OK]
+row: 7, col: 10 | got: 9924, expected 9924 [OK]
+row: 7, col: 11 | got: 9e60, expected 9e60 [OK]
+row: 7, col: 12 | got: a66b, expected a66b [OK]
+row: 7, col: 13 | got: 22da, expected 22da [OK]
+row: 7, col: 14 | got: 53e3, expected 53e3 [OK]
+row: 7, col: 15 | got: b24c, expected b24c [OK]
+row: 8, col: 0 | got: ec50, expected ec50 [OK]
+row: 8, col: 1 | got: bb68, expected bb68 [OK]
+row: 8, col: 2 | got: 38d7, expected 38d7 [OK]
+row: 8, col: 3 | got: fc23, expected fc23 [OK]
+row: 8, col: 4 | got: a6e8, expected a6e8 [OK]
+row: 8, col: 5 | got: 9a23, expected 9a23 [OK]
+row: 8, col: 6 | got: e16e, expected e16e [OK]
+row: 8, col: 7 | got: 1fe6, expected 1fe6 [OK]
+row: 8, col: 8 | got: 165a, expected 165a [OK]
+row: 8, col: 9 | got: 8a09, expected 8a09 [OK]
+row: 8, col: 10 | got: 1e19, expected 1e19 [OK]
+row: 8, col: 11 | got: f21d, expected f21d [OK]
+row: 8, col: 12 | got: f08e, expected f08e [OK]
+row: 8, col: 13 | got: c29d, expected c29d [OK]
+row: 8, col: 14 | got: daeb, expected daeb [OK]
+row: 8, col: 15 | got: b2e, expected b2e [OK]
+row: 9, col: 0 | got: a7f5, expected a7f5 [OK]
+row: 9, col: 1 | got: 9251, expected 9251 [OK]
+row: 9, col: 2 | got: 99e8, expected 99e8 [OK]
+row: 9, col: 3 | got: 99ff, expected 99ff [OK]
+row: 9, col: 4 | got: aced, expected aced [OK]
+row: 9, col: 5 | got: a569, expected a569 [OK]
+row: 9, col: 6 | got: 1ac3, expected 1ac3 [OK]
+row: 9, col: 7 | got: 8b66, expected 8b66 [OK]
+row: 9, col: 8 | got: 7035, expected 7035 [OK]
+row: 9, col: 9 | got: 8d77, expected 8d77 [OK]
+row: 9, col: 10 | got: 53d, expected 53d [OK]
+row: 9, col: 11 | got: 5e7e, expected 5e7e [OK]
+row: 9, col: 12 | got: e20c, expected e20c [OK]
+row: 9, col: 13 | got: 8f0f, expected 8f0f [OK]
+row: 9, col: 14 | got: a19f, expected a19f [OK]
+row: 9, col: 15 | got: 46e0, expected 46e0 [OK]
+row: 10, col: 0 | got: f440, expected f440 [OK]
+row: 10, col: 1 | got: 29c5, expected 29c5 [OK]
+row: 10, col: 2 | got: 6719, expected 6719 [OK]
+row: 10, col: 3 | got: cec2, expected cec2 [OK]
+row: 10, col: 4 | got: 70b4, expected 70b4 [OK]
+row: 10, col: 5 | got: 5a71, expected 5a71 [OK]
+row: 10, col: 6 | got: e3b, expected e3b [OK]
+row: 10, col: 7 | got: 3061, expected 3061 [OK]
+row: 10, col: 8 | got: c2a8, expected c2a8 [OK]
+row: 10, col: 9 | got: bdce, expected bdce [OK]
+row: 10, col: 10 | got: e5e, expected e5e [OK]
+row: 10, col: 11 | got: 336d, expected 336d [OK]
+row: 10, col: 12 | got: 381f, expected 381f [OK]
+row: 10, col: 13 | got: 1270, expected 1270 [OK]
+row: 10, col: 14 | got: d1b8, expected d1b8 [OK]
+row: 10, col: 15 | got: 4af1, expected 4af1 [OK]
+row: 11, col: 0 | got: eecd, expected eecd [OK]
+row: 11, col: 1 | got: 99f3, expected 99f3 [OK]
+row: 11, col: 2 | got: fc0a, expected fc0a [OK]
+row: 11, col: 3 | got: c221, expected c221 [OK]
+row: 11, col: 4 | got: 826a, expected 826a [OK]
+row: 11, col: 5 | got: 5fd3, expected 5fd3 [OK]
+row: 11, col: 6 | got: aa26, expected aa26 [OK]
+row: 11, col: 7 | got: 7b9d, expected 7b9d [OK]
+row: 11, col: 8 | got: c823, expected c823 [OK]
+row: 11, col: 9 | got: f3dd, expected f3dd [OK]
+row: 11, col: 10 | got: 17c4, expected 17c4 [OK]
+row: 11, col: 11 | got: 73c7, expected 73c7 [OK]
+row: 11, col: 12 | got: d5c3, expected d5c3 [OK]
+row: 11, col: 13 | got: 8e83, expected 8e83 [OK]
+row: 11, col: 14 | got: 315, expected 315 [OK]
+row: 11, col: 15 | got: 3efe, expected 3efe [OK]
+row: 12, col: 0 | got: ca5f, expected ca5f [OK]
+row: 12, col: 1 | got: aed4, expected aed4 [OK]
+row: 12, col: 2 | got: c9a5, expected c9a5 [OK]
+row: 12, col: 3 | got: 9d8e, expected 9d8e [OK]
+row: 12, col: 4 | got: 2746, expected 2746 [OK]
+row: 12, col: 5 | got: b9a6, expected b9a6 [OK]
+row: 12, col: 6 | got: b234, expected b234 [OK]
+row: 12, col: 7 | got: 6eda, expected 6eda [OK]
+row: 12, col: 8 | got: 8f48, expected 8f48 [OK]
+row: 12, col: 9 | got: b13d, expected b13d [OK]
+row: 12, col: 10 | got: 3654, expected 3654 [OK]
+row: 12, col: 11 | got: b331, expected b331 [OK]
+row: 12, col: 12 | got: 99f9, expected 99f9 [OK]
+row: 12, col: 13 | got: 5569, expected 5569 [OK]
+row: 12, col: 14 | got: 9b94, expected 9b94 [OK]
+row: 12, col: 15 | got: c2b3, expected c2b3 [OK]
+row: 13, col: 0 | got: 4b88, expected 4b88 [OK]
+row: 13, col: 1 | got: 1f6c, expected 1f6c [OK]
+row: 13, col: 2 | got: 9f9b, expected 9f9b [OK]
+row: 13, col: 3 | got: 8f58, expected 8f58 [OK]
+row: 13, col: 4 | got: 66cf, expected 66cf [OK]
+row: 13, col: 5 | got: 2adb, expected 2adb [OK]
+row: 13, col: 6 | got: e0cb, expected e0cb [OK]
+row: 13, col: 7 | got: 5ac2, expected 5ac2 [OK]
+row: 13, col: 8 | got: b290, expected b290 [OK]
+row: 13, col: 9 | got: 5309, expected 5309 [OK]
+row: 13, col: 10 | got: 9e96, expected 9e96 [OK]
+row: 13, col: 11 | got: 1caa, expected 1caa [OK]
+row: 13, col: 12 | got: af02, expected af02 [OK]
+row: 13, col: 13 | got: d001, expected d001 [OK]
+row: 13, col: 14 | got: f49c, expected f49c [OK]
+row: 13, col: 15 | got: fc17, expected fc17 [OK]
+row: 14, col: 0 | got: c1ab, expected c1ab [OK]
+row: 14, col: 1 | got: c139, expected c139 [OK]
+row: 14, col: 2 | got: e37d, expected e37d [OK]
+row: 14, col: 3 | got: cae6, expected cae6 [OK]
+row: 14, col: 4 | got: 8c8e, expected 8c8e [OK]
+row: 14, col: 5 | got: 6413, expected 6413 [OK]
+row: 14, col: 6 | got: 3ed7, expected 3ed7 [OK]
+row: 14, col: 7 | got: de76, expected de76 [OK]
+row: 14, col: 8 | got: eaa, expected eaa [OK]
+row: 14, col: 9 | got: a2c0, expected a2c0 [OK]
+row: 14, col: 10 | got: a3c4, expected a3c4 [OK]
+row: 14, col: 11 | got: bdc3, expected bdc3 [OK]
+row: 14, col: 12 | got: 2d79, expected 2d79 [OK]
+row: 14, col: 13 | got: d054, expected d054 [OK]
+row: 14, col: 14 | got: 207a, expected 207a [OK]
+row: 14, col: 15 | got: fe3, expected fe3 [OK]
+row: 15, col: 0 | got: 6ef5, expected 6ef5 [OK]
+row: 15, col: 1 | got: 8a, expected 8a [OK]
+row: 15, col: 2 | got: a97f, expected a97f [OK]
+row: 15, col: 3 | got: be86, expected be86 [OK]
+row: 15, col: 4 | got: 53dc, expected 53dc [OK]
+row: 15, col: 5 | got: d1bd, expected d1bd [OK]
+row: 15, col: 6 | got: 99f9, expected 99f9 [OK]
+row: 15, col: 7 | got: 738f, expected 738f [OK]
+row: 15, col: 8 | got: 55b7, expected 55b7 [OK]
+row: 15, col: 9 | got: cfe9, expected cfe9 [OK]
+row: 15, col: 10 | got: 175b, expected 175b [OK]
+row: 15, col: 11 | got: e240, expected e240 [OK]
+row: 15, col: 12 | got: 4aaa, expected 4aaa [OK]
+row: 15, col: 13 | got: eda9, expected eda9 [OK]
+row: 15, col: 14 | got: ae2c, expected ae2c [OK]
+row: 15, col: 15 | got: a127, expected a127 [OK]
+Total Time: 265923 ns
+Total Compute Time: 1979 ns
+Ops Rate: 30805909
+Compute Ops Rate: 4139464375
+All tests passed. No errors detected.
