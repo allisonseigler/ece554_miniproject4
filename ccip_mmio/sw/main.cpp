@@ -273,10 +273,10 @@ int main(int argc, char *argv[]) {
 
 		fprintf(stdout, "Total Time: %ld ns\n", (end.tv_nsec - start.tv_nsec));
 		fprintf(stdout, "Total Compute Time: %ld ns\n", total_compute);
-    long num = 2*(1000000000)* pow(DIM_FULL, 3);
-    long den = (end.tv_nsec - start.tv_nsec);
-		fprintf(stdout, "Ops Rate: %ld\n", (num/den));
-		fprintf(stdout, "Compute Ops Rate: %ld\n", ( num / (total_compute)));
+    long long num = 2*(1000000000)* pow(DIM_FULL, 3);
+    long long den = (end.tv_nsec - start.tv_nsec);
+		fprintf(stdout, "Ops Rate: %lld\n", (num/den));
+		fprintf(stdout, "Compute Ops Rate: %lld\n", ( num / (total_compute)));
 	
 
 		fprintf(stdout, "All tests passed. No errors detected.\n");
