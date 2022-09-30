@@ -245,7 +245,7 @@ int main(int argc, char *argv[]) {
           afu.write(0x0400, 100);
 
           clock_gettime(CLOCK_REALTIME, &end_compute);
-          total_compute += (end_compute.tv_nsec - start_compute.tv_nsec)/1000000000;
+          total_compute += (end_compute.tv_nsec - start_compute.tv_nsec);
           fprintf(stdout, "Ending Calculation...\n");
 
           fprintf(stdout, "Reading Output from C...\n");
@@ -276,7 +276,7 @@ int main(int argc, char *argv[]) {
     long num = 2*(1000000000)* pow(DIM_FULL, 3);
     long den = (end.tv_nsec - start.tv_nsec);
 		fprintf(stdout, "Ops Rate: %ld\n", (num/den));
-		fprintf(stdout, "Compute Ops Rate: %ld\n", ((2*DIM_FULL*DIM_FULL*DIM_FULL) / (total_compute)));
+		fprintf(stdout, "Compute Ops Rate: %ld\n", ( num / (total_compute)));
 	
 
 		fprintf(stdout, "All tests passed. No errors detected.\n");
